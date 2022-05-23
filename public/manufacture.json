@@ -3,48 +3,48 @@
       "_id": "628958d83262b8195a42514d",
       "price": "$3,272.86",
       "picture": "https://img.freepik.com/free-photo/laptop-hard-drive-black-background_563818-3158.jpg?size=626&ext=jpg&uid=R67494978&ga=GA1.2.986424658.1648222770",
-      "available_quantity": 533,
-      "minimum_quantity": 56,
+      "availableQuantity": 533,
+      "minimumQuantity": 56,
       "name": "Odonnell Barber"
     },
     {
       "_id": "628958d8b54f2a6aac3e0630",
       "price": "$2,590.83",
       "picture": "https://img.freepik.com/free-photo/factory-manager-reading-instructions-computer-while-checking-measurements-steel-bolt-industrial-building-manual-workers-are-background_637285-4111.jpg?size=626&ext=jpg&uid=R67494978&ga=GA1.2.986424658.1648222770",
-      "available_quantity": 3886,
-      "minimum_quantity": 268,
+      "availableQuantity": 3886,
+      "minimumQuantity": 268,
       "name": "Wynn Berger"
     },
     {
       "_id": "628958d87bb9da5781d53dee",
       "price": "$2,418.34",
       "picture": "https://img.freepik.com/free-photo/laptop-hard-drive-black-background_563818-3014.jpg?size=626&ext=jpg&uid=R67494978&ga=GA1.2.986424658.1648222770",
-      "available_quantity": 1190,
-      "minimum_quantity": 409,
+      "availableQuantity": 1190,
+      "minimumQuantity": 409,
       "name": "Ayala Stephenson"
     },
     {
       "_id": "628958d80dafd65c6db783e6",
       "price": "$1,951.60",
       "picture": "https://img.freepik.com/free-photo/laptop-hard-drive-black-background_563818-3006.jpg?size=626&ext=jpg&uid=R67494978&ga=GA1.2.986424658.1648222770",
-      "available_quantity": 2295,
-      "minimum_quantity": 433,
+      "availableQuantity": 2295,
+      "minimumQuantity": 433,
       "name": "Camille Kennedy"
     },
     {
       "_id": "628958d8e4b7352105e94417",
       "price": "$2,517.44",
       "picture": "https://img.freepik.com/free-photo/laptop-hard-drive-black-background_563818-2993.jpg?size=626&ext=jpg&uid=R67494978&ga=GA1.2.986424658.1648222770",
-      "available_quantity": 309,
-      "minimum_quantity": 471,
+      "availableQuantity": 309,
+      "minimumQuantity": 471,
       "name": "Fischer Holman"
     },
     {
       "_id": "628958d854cecd88257a92c8",
       "price": "$1,372.91",
       "picture": "https://img.freepik.com/free-photo/service-man-opens-backside-topcase-cover-computer-laptop-before-repairing-cleaning-fixing-it-with-his-professional-tools-from-toolkit-box-near-wooden-table_346278-1798.jpg?size=626&ext=jpg&uid=R67494978&ga=GA1.2.986424658.1648222770",
-      "available_quantity": 1075,
-      "minimum_quantity": 132,
+      "availableQuantity": 1075,
+      "minimumQuantity": 132,
       "name": "Hoffman Ramos"
     }
   ]

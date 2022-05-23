@@ -27,13 +27,22 @@ const ManufacturePurchases = () => {
     )
   );
 
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    axios.post("http://localhost:5005/orders", data).then((res) => {
+  const { register } = useForm();
+
+  const handleOrder = (e) => {
+    e.preventDefault();
+    const reStockQuantity = e.target.minimumQuantity?.value;
+    console.log(manufacture);
+    // console.log(typeof reStockQuantity);
+    const minimumQuantity =
+      parseInt(manufacture.minimumQuantity) + parseInt(reStockQuantity);
+    const stockQuantity = { minimumQuantity };
+    console.log(stockQuantity);
+    axios.post("http://localhost:5005/orders").then((res) => {
       const { data } = res;
       console.log(data);
-      if (data) {
-        toast.success("Your order has placed");
+      if (minimumQuantity < stockQuantity) {
+        toast.error("You can't order");
       }
       refetch();
       // setOrder(null);
@@ -44,7 +53,19 @@ const ManufacturePurchases = () => {
   //   // console.log(data);
   // };
 
-  if (isLoading) {
+  // const update = (e) => {
+  //   e.preventDefault();
+  //   const reStockQuantity = e.target.minimumQuantity?.value;
+  //   console.log(manufacture);
+  //   console.log(typeof reStockQuantity);
+  //   const minimumQuantity =
+  //     parseInt(manufacture.minimumQuantity) + parseInt(reStockQuantity);
+  //   const stockQuantity = { minimumQuantity };
+  //   console.log(stockQuantity);
+  //   // refetch();
+  // };
+
+  if (isLoading || loading) {
     return <Loading />;
   }
 
@@ -98,7 +119,7 @@ const ManufacturePurchases = () => {
       <div class="hero-content flex-col  lg:flex-row-reverse ">
         <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div class="card-body">
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleOrder}>
               <div class="form-control w-full max-w-xs">
                 <input
                   type="email"
@@ -143,6 +164,15 @@ const ManufacturePurchases = () => {
                   {...register("number")}
                 />
                 <input
+                  type="number"
+                  // placeholder="Update"
+                  class="input input-bordered"
+                  defaultChecked
+                  // value="manufacture.minimum_quantity"
+                  // defaultValue={manufacture.minimumQuantity}
+                  name="minimumQuantity"
+                />
+                <input
                   type="submit"
                   className="btn  w-full max-w-xs"
                   value="Place the Order"
@@ -151,24 +181,32 @@ const ManufacturePurchases = () => {
             </form>
           </div>
         </div>
-        <div class="card w-96 bg-neutral text-neutral-content">
+        <div class="card lg:max-w-lg   bg-neutral text-neutral-content">
           <div class="card-body items-center text-center">
             <figure class="px-10 pt-10">
               <img src={manufacture?.picture} alt="Shoes" class="rounded-xl" />
             </figure>
             <h2 class="card-title">{manufacture?.name}</h2>
             <p>{manufacture?.price}</p>
-            <p>{manufacture?.available_quantity}</p>
-            <p>{manufacture?.minimum_quantity}</p>
+            <p>{manufacture?.availableQuantity}</p>
+            <p>
+              {manufacture?.minimumQuantity}{" "}
+              {manufacture?.minimumQuantity.length < "number"
+                ? "You can't do this"
+                : ""}
+            </p>
             <div class="card-actions justify-center">
-              <button class="btn btn-info">Update</button>
-              <form>
-                <input
+              {/* <form onSubmit={update}> */}
+              {/* <input
                   type="number"
-                  placeholder="Reduce"
-                  class="input input-bordered "
-                />
-              </form>
+                  // placeholder="Update"
+                  class="input input-bordered"
+                  defaultChecked
+                  // value="manufacture.minimum_quantity"
+                  // defaultValue={manufacture.minimumQuantity}
+                  name="minimumQuantity"
+                /> */}
+              {/* </form> */}
             </div>
           </div>
         </div>
