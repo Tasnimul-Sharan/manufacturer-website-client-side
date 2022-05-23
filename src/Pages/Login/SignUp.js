@@ -3,15 +3,20 @@ import { useForm } from "react-hook-form";
 import auth from "../../firebase.init";
 import {
   useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Loading from "../Shared/Loading";
+import google from "../../images/google.png";
+import useToken from "../../Hooks/useToken";
 
 const SignUp = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const [token] = useToken(user || gUser);
   const navigate = useNavigate();
   const {
     register,
@@ -19,12 +24,15 @@ const SignUp = () => {
     handleSubmit,
   } = useForm();
 
-  if (loading || updating) {
-    return <Loading />;
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
+  if (token) {
+    navigate(from, { replace: true });
   }
 
-  if (user) {
-    navigate("/");
+  if (loading || updating) {
+    return <Loading />;
   }
 
   const onSubmit = async (data) => {
@@ -115,7 +123,10 @@ const SignUp = () => {
           </Link>{" "}
         </p>
         <div class="divider">OR</div>
-        <button>Sign In With Google</button>
+        <button className="btn btn-info m-5" onClick={() => signInWithGoogle()}>
+          <img src={google} alt="" />
+          <span className="m-5 text-white">Sign In With Google</span>
+        </button>
       </div>
     </div>
   );

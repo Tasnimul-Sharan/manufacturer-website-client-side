@@ -4,7 +4,7 @@ import Manufacturer from "./Manufacturer";
 const Manufactures = () => {
   const [manufactures, setManufactures] = useState([]);
   useEffect(() => {
-    fetch("manufacture.json")
+    fetch("http://localhost:5005/parts")
       .then((res) => res.json())
       .then((data) => setManufactures(data));
   }, []);
