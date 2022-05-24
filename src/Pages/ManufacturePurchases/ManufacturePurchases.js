@@ -16,6 +16,7 @@ const ManufacturePurchases = () => {
   const { maufactureId } = useParams();
   // const [order, setOrder] = useState(null);
   const [user, loading, error] = useAuthState(auth);
+  const [reload, setReload] = useState(true);
 
   const {
     data: manufacture,
@@ -44,6 +45,7 @@ const ManufacturePurchases = () => {
       if (minimumQuantity < stockQuantity) {
         toast.error("You can't order");
       }
+      setReload(!reload);
       refetch();
       // setOrder(null);
     });

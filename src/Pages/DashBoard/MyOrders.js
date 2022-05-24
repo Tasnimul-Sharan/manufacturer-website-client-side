@@ -11,29 +11,9 @@ const MyOrders = () => {
   const [orders, setOrders] = useState([]);
   const [user] = useAuthState(auth);
   const [deleting, setDeleting] = useState(null);
-  //   const [loading, setLoading] = useState(true);
   const [reload, setReload] = useState(true);
 
   useEffect(() => {
-    //   const email = user?.email;
-    //   const {
-    //     data: orders,
-    //     isLoading,
-    //     refetch,
-    //   } = useQuery("orders", () =>
-    //     fetch(`http://localhost:5005/orders?email=${email}`, {
-    //       headers: {
-    //         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-    //       },
-    //     }).then((res) => {
-    //       return res.json();
-    //     })
-    //   );
-
-    //   if (isLoading) {
-    //     return <Loading />;
-    //   }
-
     const getOrders = async () => {
       if (user) {
         const { data } = await axios.get(
@@ -45,15 +25,10 @@ const MyOrders = () => {
           }
         );
         setOrders(data);
-        // setLoading(false);
       }
     };
     getOrders();
   }, [user, reload]);
-
-  //   if (loading) {
-  //     return <Loading />;
-  //   }
 
   return (
     <div>
