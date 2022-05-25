@@ -31,6 +31,15 @@ const SignUp = () => {
     navigate(from, { replace: true });
   }
 
+  let signInError;
+  if (error || gError || updateError) {
+    signInError = (
+      <p className="text-red-800">
+        <small>{error?.message || gError?.message}</small>
+      </p>
+    );
+  }
+
   if (loading || updating) {
     return <Loading />;
   }
@@ -108,7 +117,7 @@ const SignUp = () => {
               <span className="text-red-500">{errors.password.message}</span>
             )}
           </div>
-
+          {signInError}
           <input
             className="btn w-full max-w-xs"
             type="submit"

@@ -35,7 +35,6 @@ const UserRow = ({ user, refetch }) => {
           </button>
         )}
       </td>
-      <td>Blue</td>
     </tr>
   );
 };

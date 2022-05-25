@@ -11,7 +11,6 @@ import Dashboard from "./Pages/DashBoard/Dashboard";
 import MyProfile from "./Pages/DashBoard/MyProfile";
 import MyOrders from "./Pages/DashBoard/MyOrders";
 import AddReview from "./Pages/DashBoard/AddReview";
-
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import Users from "./Pages/DashBoard/Users";
@@ -20,6 +19,9 @@ import RequireAdmin from "./Pages/Login/RequireAdmin";
 import AddProduct from "./Pages/DashBoard/AddProduct";
 import ManageProduct from "./Pages/DashBoard/ManageProduct";
 import Payment from "./Pages/DashBoard/Payment";
+import ManageAllProducts from "./Pages/DashBoard/ManageAllProducts";
+import Blogs from "./Pages/Blogs/Blogs";
+import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
 
 function App() {
   return (
@@ -69,19 +71,30 @@ function App() {
             }
           ></Route>
           <Route
-            path="myprofile"
+            path="manageallproduct"
             element={
               <RequireAdmin>
-                <MyProfile />
+                <ManageAllProducts />
               </RequireAdmin>
             }
           ></Route>
+          <Route path="myprofile" element={<MyProfile />}></Route>
         </Route>
+        <Route path="/blogs" element={<Blogs />}></Route>
+        <Route path="/myportfolio" element={<MyPortfolio />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/Signup" element={<SignUp />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <ToastContainer />
+      {/* Hammer.
+Screwdriver.
+Mallet.
+Axe.
+Saw.
+Scissors.
+Chisel.
+Pliers. */}
     </div>
   );
 }

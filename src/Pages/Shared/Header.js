@@ -13,16 +13,13 @@ const Header = () => {
   const menuItems = (
     <>
       <li>
-        <Link to="hi">Home</Link>
+        <Link to="/manufacture/:maufactureId">Manufacture parts</Link>
       </li>
       <li>
-        <Link to="hi">About</Link>
+        <Link to="/blogs">Blogs</Link>
       </li>
       <li>
-        <Link to="hi">Tasnim</Link>
-      </li>
-      <li>
-        <Link to="hi">Tasnim</Link>
+        <Link to="/myportfolio">My portfolio</Link>
       </li>
       {user && (
         <li>

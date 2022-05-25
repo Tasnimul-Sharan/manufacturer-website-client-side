@@ -3,6 +3,7 @@ import Manufactures from "../Manufacture/Manufactures";
 
 import Footer from "../Shared/Footer";
 import Banner from "./Banner";
+import BussinessSummery from "./BussinessSummery";
 import Reviews from "./Reviews";
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
       <Banner />
       <Manufactures />
       <Reviews />
+      <BussinessSummery />
       <Footer />
     </div>
   );

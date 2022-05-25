@@ -61,16 +61,6 @@ const CheckoutForm = ({ manufacture }) => {
           },
         },
       });
-    // const { paymentIntent, error: intentError } =
-    //   await stripe.confirmCardPayment(clientSecret, {
-    //     payment_method: {
-    //       card: card,
-    //       billing_details: {
-    //         name: partsname,
-    //         email: email,
-    //       },
-    //     },
-    //   });
 
     if (intentError) {
       setCardError(intentError?.message);
@@ -129,7 +119,7 @@ const CheckoutForm = ({ manufacture }) => {
           <button
             type="submit"
             className="btn btn-success mt-5"
-            disabled={!stripe}
+            disabled={!stripe || !clientSecret}
           >
             Pay
           </button>

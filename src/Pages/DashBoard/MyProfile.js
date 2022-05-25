@@ -34,7 +34,7 @@ const MyProfile = () => {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(profile),
+      body: JSON.stringify({ profile }),
     })
       .then((res) => res.json())
       .then((data) => {
