@@ -3,15 +3,17 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
-import DeleteConfirmationModal from "./DeleteConfirmationModal";
+import DeleteOrderParts from "./DeleteOrderParts";
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([]);
   const [user] = useAuthState(auth);
   const [deleting, setDeleting] = useState(null);
   const [reload, setReload] = useState(true);
+  console.log(deleting);
 
   useEffect(() => {
     const getOrders = async () => {
@@ -42,23 +44,55 @@ const MyOrders = () => {
               <th>price</th>
               <th>parts name</th>
               <th>Action</th>
+              <th>Payment</th>
             </tr>
           </thead>
           <tbody>
             {orders?.map((order, index) => (
               <tr key={order._id}>
                 <th>{index + 1}</th>
-                <td>{order.name}</td>
+                <td>
+                  <div class="avatar">
+                    <div class="w-32 rounded">
+                      <img src={order.image} alt="avatar" />
+                    </div>
+                  </div>
+                </td>
                 <td>{order.price}</td>
                 <td>{order.partsname}</td>
                 <td>
-                  <label
-                    onClick={() => setDeleting(order)}
-                    for="delete-confirm -modal"
-                    class="btn btn-xs btn-error"
-                  >
-                    Delete
-                  </label>
+                  {!order.paid && (
+                    <label
+                      onClick={() => setDeleting(order)}
+                      for="delete-confirm -modal"
+                      class="btn btn-xs btn-error"
+                    >
+                      Delete
+                    </label>
+                  )}
+                </td>
+                <td>
+                  {order.price && !order.paid && (
+                    <Link to={`/dashboard/payment/${order._id}`}>
+                      <button className="btn btn-xs btn-success">pay</button>
+                    </Link>
+                  )}
+                </td>
+                <td>
+                  {order.price && order.paid && (
+                    <div>
+                      <p>
+                        {" "}
+                        <span className="text-success">paid</span>
+                      </p>
+                      <p>
+                        transaction id:{" "}
+                        <span className="text-success">
+                          {order.transactionId}
+                        </span>
+                      </p>
+                    </div>
+                  )}
                 </td>
               </tr>
             ))}
@@ -66,13 +100,12 @@ const MyOrders = () => {
         </table>
       </div>
       {deleting && (
-        <DeleteConfirmationModal
+        <DeleteOrderParts
           deleting={deleting}
           setDeleting={setDeleting}
-          //   refetch={refetch}
           setReload={setReload}
           reload={reload}
-        ></DeleteConfirmationModal>
+        ></DeleteOrderParts>
       )}
     </div>
   );

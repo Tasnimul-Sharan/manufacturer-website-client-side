@@ -1,16 +1,17 @@
 import React from "react";
 import { toast } from "react-toastify";
 
-const DeleteConfirmationModal = ({
-  deleting,
-  setDeleting,
-  setReload,
+const DeleteManageParts = ({
+  deleteParts,
+  setDeleteParts,
   reload,
+  setReload,
 }) => {
-  const { partsname, email } = deleting;
+  const { _id } = deleteParts;
+  console.log(deleteParts);
 
-  const handleDelete = () => {
-    fetch(`http://localhost:5005/orders/${email}`, {
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5005/parts/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -19,9 +20,9 @@ const DeleteConfirmationModal = ({
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.deletedCount > 0) {
-          toast.success(`You have deleted ${partsname}`);
-          setDeleting(null);
+        if (data.deletedCount) {
+          toast.success("You have deleted the parts");
+          setDeleteParts(null);
           setReload(!reload);
         }
       });
@@ -29,11 +30,11 @@ const DeleteConfirmationModal = ({
 
   return (
     <div>
-      <input type="checkbox" id="delete-confirm -modal" class="modal-toggle" />
+      <input type="checkbox" id="delete-modal" class="modal-toggle" />
       <div class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
           <h3 class="font-bold text-lg text-red-700">
-            Are you sure want to delete {partsname}
+            Are you sure want to delete
           </h3>
           <p class="py-4">
             You've been selected for a chance to get one year of subscription to
@@ -41,12 +42,12 @@ const DeleteConfirmationModal = ({
           </p>
           <div class="modal-action">
             <button
-              onClick={() => handleDelete(email)}
+              onClick={() => handleDelete(_id)}
               className="btn btn-xs btn-error"
             >
               Delete
             </button>
-            <label for="delete-confirm -modal" class="btn btn-xs">
+            <label for="delete-modal" class="btn btn-xs">
               cancel
             </label>
           </div>
@@ -56,4 +57,4 @@ const DeleteConfirmationModal = ({
   );
 };
 
-export default DeleteConfirmationModal;
+export default DeleteManageParts;

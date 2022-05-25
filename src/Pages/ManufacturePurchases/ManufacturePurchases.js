@@ -1,5 +1,5 @@
 // import React, { useEffect, useState } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useAuthState } from "react-firebase-hooks/auth";
 // import { useForm } from "react-hook-form";
@@ -16,40 +16,63 @@ const ManufacturePurchases = () => {
   const { maufactureId } = useParams();
   // const [order, setOrder] = useState(null);
   const [user, loading, error] = useAuthState(auth);
-  const [reload, setReload] = useState(true);
+  // const [reload, setReload] = useState(true);
+  const [manufacture, setManufacture] = useState([]);
 
-  const {
-    data: manufacture,
-    isLoading,
-    refetch,
-  } = useQuery(["parts", maufactureId], () =>
-    fetch(`http://localhost:5005/parts/${maufactureId}`).then((res) =>
-      res.json()
-    )
-  );
+  // const {
+  //   data: manufacture,
+  //   isLoading,
+  //   refetch,
+  // } = useQuery(["parts", maufactureId], () =>
+  //   fetch(`http://localhost:5005/parts/${maufactureId}`).then((res) =>
+  //     res.json()
+  //   )
+  // );
+
+  useEffect(() => {
+    fetch(`http://localhost:5005/parts/${maufactureId}`)
+      .then((res) => res.json())
+      .then((data) => setManufacture(data));
+  }, []);
 
   const { register } = useForm();
-
   const handleOrder = (e) => {
     e.preventDefault();
-    const reStockQuantity = e.target.minimumQuantity?.value;
-    console.log(manufacture);
-    // console.log(typeof reStockQuantity);
-    const minimumQuantity =
-      parseInt(manufacture.minimumQuantity) + parseInt(reStockQuantity);
-    const stockQuantity = { minimumQuantity };
-    console.log(stockQuantity);
+    // const quantity = e.target.minimumQuantity.value;
+    // console.log(data);
+
     axios.post("http://localhost:5005/orders").then((res) => {
       const { data } = res;
       console.log(data);
-      if (minimumQuantity < stockQuantity) {
-        toast.error("You can't order");
+      if (
+        data.insertedId
+        // manufacture.minimumQuantity <= quantity &&
+        // manufacture.availableQuantity > quantity
+      ) {
+        toast.success("You order have placed");
+      } else {
+        toast.error("You have to purchase at least minimum quantity");
       }
-      setReload(!reload);
-      refetch();
+      // setReload(!reload);
+      // refetch();
       // setOrder(null);
     });
   };
+
+  // const handleOrder = (e) => {
+  // e.preventDefault();
+  // const reStockQuantity = e.target.minimumQuantity?.value;
+  // const reStockQuantity = e.target.quantity.value;
+
+  // const quantity = e.target.minimumQuantity.value;
+  // // console.log(manufacture);
+  // // console.log(typeof reStockQuantity);
+  // const minimumQuantity =
+  //   parseInt(manufacture.minimumQuantity) + parseInt(reStockQuantity);
+  // const stockQuantity = { minimumQuantity };
+  // console.log(stockQuantity);
+
+  // };
   // const handleOrder = (e) => {
   //   e.preventDefault();
   //   // console.log(data);
@@ -67,9 +90,9 @@ const ManufacturePurchases = () => {
   //   // refetch();
   // };
 
-  if (isLoading || loading) {
-    return <Loading />;
-  }
+  // if (isLoading || loading) {
+  //   return <Loading />;
+  // }
 
   // if (error) {
   //   console.log(error);
@@ -139,19 +162,19 @@ const ManufacturePurchases = () => {
                   type="text"
                   class="input input-bordered w-full max-w-xs"
                   {...register("partsname")}
-                  value={manufacture.name}
+                  value={manufacture?.name}
                 />
                 <input
                   type="text"
                   class="input input-bordered w-full max-w-xs"
                   {...register("image")}
-                  value={manufacture.picture}
+                  value={manufacture?.picture}
                 />
                 <input
                   type="text"
                   class="input input-bordered w-full max-w-xs"
                   {...register("price")}
-                  value={manufacture.price}
+                  value={manufacture?.price}
                 />
                 <input
                   type="text"
@@ -169,14 +192,17 @@ const ManufacturePurchases = () => {
                   type="number"
                   // placeholder="Update"
                   class="input input-bordered"
-                  defaultChecked
                   // value="manufacture.minimum_quantity"
                   // defaultValue={manufacture.minimumQuantity}
                   name="minimumQuantity"
+                  defaultValue={manufacture?.minimumQuantity}
                 />
                 <input
                   type="submit"
                   className="btn  w-full max-w-xs"
+                  // disabled={
+                  //   minimumQuantity > quantity && availableQuantity < quantity
+                  // }
                   value="Place the Order"
                 />
               </div>
@@ -191,25 +217,13 @@ const ManufacturePurchases = () => {
             <h2 class="card-title">{manufacture?.name}</h2>
             <p>{manufacture?.price}</p>
             <p>{manufacture?.availableQuantity}</p>
-            <p>
-              {manufacture?.minimumQuantity}{" "}
-              {manufacture?.minimumQuantity.length < "number"
+            <p>{manufacture?.minimumQuantity}</p>
+            {/* <p> */}
+            {/* {manufacture?.minimumQuantity}{" "}
+              {manufacture?.minimumQuantity "number"
                 ? "You can't do this"
                 : ""}
-            </p>
-            <div class="card-actions justify-center">
-              {/* <form onSubmit={update}> */}
-              {/* <input
-                  type="number"
-                  // placeholder="Update"
-                  class="input input-bordered"
-                  defaultChecked
-                  // value="manufacture.minimum_quantity"
-                  // defaultValue={manufacture.minimumQuantity}
-                  name="minimumQuantity"
-                /> */}
-              {/* </form> */}
-            </div>
+            </p> */}
           </div>
         </div>
       </div>

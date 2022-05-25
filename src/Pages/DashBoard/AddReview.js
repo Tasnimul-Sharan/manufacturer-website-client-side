@@ -16,39 +16,43 @@ const AddReview = () => {
     console.log(data);
   };
   return (
-    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <div class="card-body">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            type="text"
-            placeholder="Your Name"
-            class="input input-bordered w-full max-w-xs"
-            {...register("name")}
-          />
-          <input
-            class="input input-bordered w-full max-w-xs"
-            type="text"
-            placeholder="Write a review"
-            {...register("description")}
-          />
-          <input
-            type="text"
-            placeholder="Your Image"
-            class="input input-bordered w-full max-w-xs"
-            {...register("image")}
-          />
-          <input
-            class="input input-bordered w-full max-w-xs"
-            type="number"
-            placeholder="Ratings"
-            {...register("ratings", { min: 1, max: 5 })}
-          />
-          <input
-            class="input input-bordered w-full max-w-xs btn"
-            type="submit"
-            value="Add review"
-          />
-        </form>
+    <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center h-screen">
+        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div class="card-body">
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <input
+                type="text"
+                placeholder="Your Name"
+                class="input input-bordered w-full max-w-xs"
+                {...register("name")}
+              />
+              <input
+                class="input input-bordered w-full max-w-xs"
+                type="text"
+                placeholder="Write a review"
+                {...register("description")}
+              />
+              <input
+                type="text"
+                placeholder="Your Image"
+                class="input input-bordered w-full max-w-xs"
+                {...register("image")}
+              />
+              <input
+                class="input input-bordered w-full max-w-xs"
+                type="number"
+                placeholder="Ratings"
+                {...register("ratings", { min: 1, max: 5 })}
+              />
+              <input
+                class="input input-bordered w-full max-w-xs btn"
+                type="submit"
+                value="Add review"
+              />
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   );

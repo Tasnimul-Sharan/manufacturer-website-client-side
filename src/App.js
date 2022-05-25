@@ -18,6 +18,8 @@ import Users from "./Pages/DashBoard/Users";
 import NotFound from "./Pages/Shared/NotFound";
 import RequireAdmin from "./Pages/Login/RequireAdmin";
 import AddProduct from "./Pages/DashBoard/AddProduct";
+import ManageProduct from "./Pages/DashBoard/ManageProduct";
+import Payment from "./Pages/DashBoard/Payment";
 
 function App() {
   return (
@@ -41,6 +43,7 @@ function App() {
           <Route index element={<MyProfile />}></Route>
           <Route path="order" element={<MyOrders />}></Route>
           <Route path="review" element={<AddReview />}></Route>
+          <Route path="payment/:id" element={<Payment />}></Route>
           <Route
             path="users"
             element={
@@ -54,6 +57,22 @@ function App() {
             element={
               <RequireAdmin>
                 <AddProduct />
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="manageproducts"
+            element={
+              <RequireAdmin>
+                <ManageProduct />
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="myprofile"
+            element={
+              <RequireAdmin>
+                <MyProfile />
               </RequireAdmin>
             }
           ></Route>
