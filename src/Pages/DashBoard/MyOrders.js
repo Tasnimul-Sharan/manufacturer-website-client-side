@@ -32,6 +32,8 @@ const MyOrders = () => {
     getOrders();
   }, [user, reload]);
 
+  console.log(orders);
+
   return (
     <div>
       <h1>order : {orders?.length}</h1>
@@ -58,7 +60,7 @@ const MyOrders = () => {
                     </div>
                   </div>
                 </td>
-                <td>{order.price}</td>
+                <td>${order.price}</td>
                 <td>{order.partsname}</td>
                 <td>
                   {!order.paid && (

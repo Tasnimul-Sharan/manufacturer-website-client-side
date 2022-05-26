@@ -73,14 +73,12 @@ const CheckoutForm = ({ manufacture }) => {
       console.log(paymentIntent);
       setSuccess("Congrats! Your payment is completed");
 
-      //   //store payment on database
-
       const payment = {
         appointment: _id,
         transactionId: paymentIntent.id,
       };
 
-      fetch(`http://localhost:5005/create-payment-intent/orders/${_id}`, {
+      fetch(`http://localhost:5005/orders/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -119,7 +117,7 @@ const CheckoutForm = ({ manufacture }) => {
           <button
             type="submit"
             className="btn btn-success mt-5"
-            disabled={!stripe || !clientSecret}
+            disabled={!stripe || !clientSecret || success}
           >
             Pay
           </button>
@@ -131,7 +129,7 @@ const CheckoutForm = ({ manufacture }) => {
           <p>{success}</p>
           <p>
             Your Transaction Id :{" "}
-            <span className="text-orange-500 font-bold">{transactionId}</span>
+            <span className="text-sky-600 font-bold">{transactionId}</span>
           </p>
         </div>
       )}
