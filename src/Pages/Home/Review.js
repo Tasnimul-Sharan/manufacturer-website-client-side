@@ -16,7 +16,7 @@ const Review = ({ review }) => {
         <h2 class="card-title">{name}</h2>
         <h1 className="text-amber-500">
           {" "}
-          <span className="text-xl text-slate-600">{ratings}</span>
+          <span className="text-xl text-white">{ratings}</span>
           <br />
           <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
           <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>

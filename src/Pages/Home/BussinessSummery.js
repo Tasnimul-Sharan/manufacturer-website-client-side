@@ -15,7 +15,7 @@ import "./Bussness.css";
 
 const BussinessSummery = () => {
   return (
-    <section className="my-5">
+    <section className="my-28">
       <h1 className="text-5xl text-sky-800">Millions Business Trust Us</h1>
       <h3 className="text-3xl text-slate-800 text-bold">
         Try to understand user Expectation

@@ -24,7 +24,7 @@ const Payment = () => {
   if (isLoading) {
     return <Loading />;
   }
-
+  console.log(manufacture);
   return (
     <div class="hero min-h-screen bg-base-200">
       <div class="hero-content flex-col lg:flex-row-reverse">
@@ -36,6 +36,7 @@ const Payment = () => {
             <h2 className="text-xl text-slate-900 font-serif">
               Please pay for {manufacture.partsname}
             </h2>
+            <img src={manufacture.image} alt="" />
             <h2 className="text-xl text-orange-800">
               Please pay: {manufacture.price}
             </h2>

@@ -2,8 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Manufacturer = ({ manufacture }) => {
-  const { _id, name, price, picture, availableQuantity, minimumQuantity } =
-    manufacture;
+  const {
+    _id,
+    name,
+    price,
+    description,
+    picture,
+    availableQuantity,
+    minimumQuantity,
+  } = manufacture;
   return (
     // <div className="">
     <div class="card lg:max-w-lg bg-base-100 shadow-xl">
@@ -12,7 +19,8 @@ const Manufacturer = ({ manufacture }) => {
       </figure>
       <div class="card-body items-center text-center">
         <h2 class="card-title">{name}</h2>
-        <p>price: {price}</p>
+        <p>Description: {description}</p>
+        <p>price: ${price}</p>
         <p>Available Quantity: {availableQuantity}</p>
         <p>Minimum Quantity: {minimumQuantity}</p>
         <div class="card-actions">

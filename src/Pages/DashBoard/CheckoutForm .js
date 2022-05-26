@@ -13,6 +13,7 @@ const CheckoutForm = ({ manufacture }) => {
   const { _id, partsname, email, price } = manufacture;
 
   useEffect(() => {
+    // if (price) {
     fetch("http://localhost:5005/create-payment-intent", {
       method: "POST",
       headers: {
@@ -30,6 +31,7 @@ const CheckoutForm = ({ manufacture }) => {
       });
   }, [price]);
 
+  console.log(price);
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -114,8 +116,6 @@ const CheckoutForm = ({ manufacture }) => {
         />
 
         <div class="card-actions justify-end">
-          {/* <button class="btn btn-primary">Accept</button> */}
-
           <button
             type="submit"
             className="btn btn-success mt-5"

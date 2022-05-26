@@ -1,50 +1,56 @@
 [
     {
       "_id": "628958d83262b8195a42514d",
-      "price": "$3,272.86",
-      "picture": "https://img.freepik.com/free-photo/laptop-hard-drive-black-background_563818-3158.jpg?size=626&ext=jpg&uid=R67494978&ga=GA1.2.986424658.1648222770",
+     "price": 59,
+      "picture": "https://image.gemwon.com/files/202204/1975509.jpg",
+      "description": "Cleaning brush Soft and hard bristle brush Keyboard puller Key puller Blowing ball Dust blower Mechanical keyboard cleaning kit Other 1105",
+      "name": "Dust blower",
       "availableQuantity": 533,
-      "minimumQuantity": 56,
-      "name": "Odonnell Barber"
+      "minimumQuantity": 56
     },
     {
       "_id": "628958d8b54f2a6aac3e0630",
-      "price": "$2,590.83",
-      "picture": "https://img.freepik.com/free-photo/factory-manager-reading-instructions-computer-while-checking-measurements-steel-bolt-industrial-building-manual-workers-are-background_637285-4111.jpg?size=626&ext=jpg&uid=R67494978&ga=GA1.2.986424658.1648222770",
+      "price": 50,
+      "picture": "https://img.freepik.com/free-photo/laptop-hard-drive-black-background_563818-2993.jpg?size=626&ext=jpg&uid=R67494978&ga=GA1.2.986424658.1648222770",
+      "description": "HDD Hard Drive Caddy Cover HP Probook 450 455 470 475 G3 Cover N/A HDD Hard Drive Caddy Cover HP Probook 450 455 470 475 G3",
+      "name": "Hard drive",
       "availableQuantity": 3886,
-      "minimumQuantity": 268,
-      "name": "Wynn Berger"
+      "minimumQuantity": 268
     },
     {
       "_id": "628958d87bb9da5781d53dee",
-      "price": "$2,418.34",
-      "picture": "https://img.freepik.com/free-photo/laptop-hard-drive-black-background_563818-3014.jpg?size=626&ext=jpg&uid=R67494978&ga=GA1.2.986424658.1648222770",
+      "price": 80,
+      "picture": "https://image.gemwon.com/files/202204/9120002_1.jpg",
+      "description": "Bring your laptop back to life with the high quality laptop battery - Made of high quality materials, top grade battery cells and packed with safety features. The basic shell material is ABS+PC, which is not only resistant to high temperature andwear, but also environmentally friendly",
+      "name": " Apple laptop battery ",
       "availableQuantity": 1190,
-      "minimumQuantity": 409,
-      "name": "Ayala Stephenson"
+      "minimumQuantity": 409
     },
     {
       "_id": "628958d80dafd65c6db783e6",
-      "price": "$1,951.60",
-      "picture": "https://img.freepik.com/free-photo/laptop-hard-drive-black-background_563818-3006.jpg?size=626&ext=jpg&uid=R67494978&ga=GA1.2.986424658.1648222770",
+      "price": 65,
+      "picture": "https://image.gemwon.com/files/202202/9221242_17155155.jpg",
+      "description": "Mouse 2.4G Wireless MOUSE Lightweight Design Honeycomb RGB Luminous 6 Button Mouse T66 Black.suitable for desktop computers, laptop computers, with USB interface Smart TV etc.",
+      "name": "Mouse 2.4G Wireless MOUSE",
       "availableQuantity": 2295,
-      "minimumQuantity": 433,
-      "name": "Camille Kennedy"
+      "minimumQuantity": 433
     },
     {
       "_id": "628958d8e4b7352105e94417",
-      "price": "$2,517.44",
-      "picture": "https://img.freepik.com/free-photo/laptop-hard-drive-black-background_563818-2993.jpg?size=626&ext=jpg&uid=R67494978&ga=GA1.2.986424658.1648222770",
+      "price": 30,
+      "picture": "https://image.gemwon.com/files/202204/6350855.jpg",
+      "description": "MacBook Air Magic Keyboard with Touch ID. The function keys on the top row of the Magic Keyboard provide shortcuts for common functions.",
+      "name": "APPLE Macbook Air Keyboard",
       "availableQuantity": 309,
-      "minimumQuantity": 471,
-      "name": "Fischer Holman"
+      "minimumQuantity": 471
     },
     {
       "_id": "628958d854cecd88257a92c8",
-      "price": "$1,372.91",
-      "picture": "https://img.freepik.com/free-photo/service-man-opens-backside-topcase-cover-computer-laptop-before-repairing-cleaning-fixing-it-with-his-professional-tools-from-toolkit-box-near-wooden-table_346278-1798.jpg?size=626&ext=jpg&uid=R67494978&ga=GA1.2.986424658.1648222770",
+      "price": 20,
+      "picture": "https://image.gemwon.com/files/202204/1480510.jpg",
+      "description": "Laptop radiator tablet notebook radiator bracket base with fan ABS+silicone black.",
+      "name": "fan ABS",
       "availableQuantity": 1075,
-      "minimumQuantity": 132,
-      "name": "Hoffman Ramos"
+      "minimumQuantity": 132
     }
   ]

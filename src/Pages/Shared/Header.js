@@ -3,6 +3,7 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
+import pic from "../../images/hardware-icon-png-22 (1).png";
 
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -29,7 +30,7 @@ const Header = () => {
 
       {user ? (
         <button onClick={logOut} className="btn btn-active btn-ghost">
-          Log Out
+          Logout
         </button>
       ) : (
         // <span>{user.displayName}</span>
@@ -68,9 +69,12 @@ const Header = () => {
             {menuItems}
           </ul>
         </div>
-        <Link to="/" class="btn btn-ghost normal-case text-xl">
-          daisyUI
-        </Link>
+        <div className="flex justify-items-center mb-8">
+          <Link to="/" class="btn btn-ghost normal-case text-xl">
+            <img className="w-20" src={pic} alt="" />
+            <span>Space Electronics</span>
+          </Link>
+        </div>
       </div>
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal p-0">{menuItems}</ul>

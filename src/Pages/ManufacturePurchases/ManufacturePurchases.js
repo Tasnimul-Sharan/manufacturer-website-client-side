@@ -17,35 +17,45 @@ const ManufacturePurchases = () => {
   // const [order, setOrder] = useState(null);
   const [user, loading, error] = useAuthState(auth);
   // const [reload, setReload] = useState(true);
-  const [manufacture, setManufacture] = useState([]);
+  // const [manufacture, setManufacture] = useState([]);
 
-  // const {
-  //   data: manufacture,
-  //   isLoading,
-  //   refetch,
-  // } = useQuery(["parts", maufactureId], () =>
-  //   fetch(`http://localhost:5005/parts/${maufactureId}`).then((res) =>
-  //     res.json()
-  //   )
-  // );
+  const {
+    data: manufacture,
+    isLoading,
+    refetch,
+  } = useQuery(["parts", maufactureId], () =>
+    fetch(`http://localhost:5005/parts/${maufactureId}`).then((res) =>
+      res.json()
+    )
+  );
 
-  useEffect(() => {
-    fetch(`http://localhost:5005/parts/${maufactureId}`)
-      .then((res) => res.json())
-      .then((data) => setManufacture(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch(`http://localhost:5005/parts/${maufactureId}`)
+  //     .then((res) => res.json())
+  //     .then((data) => setManufacture(data));
+  // }, []);
 
-  const { register } = useForm();
-  const handleOrder = (e) => {
-    e.preventDefault();
-    // const quantity = e.target.minimumQuantity.value;
-    // console.log(data);
+  const { register, handleSubmit } = useForm();
 
-    axios.post("http://localhost:5005/orders").then((res) => {
+  // const handleOrder = (e) => {
+  //   e.preventDefault();
+  // const quantity = e.target.minimumQuantity.value;
+  // console.log(data);
+
+  // const data = {
+  //   name: manufacture?.name,
+  //   picture: manufacture?.picture,
+  // };
+  const onSubmit = (data) => {
+    console.log(data);
+
+    // const quantity =
+
+    axios.post("http://localhost:5005/orders", data).then((res) => {
       const { data } = res;
       console.log(data);
       if (
-        data.insertedId
+        data
         // manufacture.minimumQuantity <= quantity &&
         // manufacture.availableQuantity > quantity
       ) {
@@ -53,11 +63,16 @@ const ManufacturePurchases = () => {
       } else {
         toast.error("You have to purchase at least minimum quantity");
       }
+      refetch();
       // setReload(!reload);
       // refetch();
       // setOrder(null);
     });
+    // };
   };
+
+  // const { register, handleSubmit } = useForm();
+  // const onSubmit = data => console.log(data);
 
   // const handleOrder = (e) => {
   // e.preventDefault();
@@ -90,9 +105,9 @@ const ManufacturePurchases = () => {
   //   // refetch();
   // };
 
-  // if (isLoading || loading) {
-  //   return <Loading />;
-  // }
+  if (isLoading || loading) {
+    return <Loading />;
+  }
 
   // if (error) {
   //   console.log(error);
@@ -144,7 +159,7 @@ const ManufacturePurchases = () => {
       <div class="hero-content flex-col  lg:flex-row-reverse ">
         <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div class="card-body">
-            <form onSubmit={handleOrder}>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div class="form-control w-full max-w-xs">
                 <input
                   type="email"
@@ -215,9 +230,9 @@ const ManufacturePurchases = () => {
               <img src={manufacture?.picture} alt="Shoes" class="rounded-xl" />
             </figure>
             <h2 class="card-title">{manufacture?.name}</h2>
-            <p>{manufacture?.price}</p>
-            <p>{manufacture?.availableQuantity}</p>
-            <p>{manufacture?.minimumQuantity}</p>
+            <p>price: ${manufacture.price}</p>
+            <p>Available Quantity: {manufacture?.availableQuantity}</p>
+            <p>Minimum Quantity: {manufacture?.minimumQuantity}</p>
             {/* <p> */}
             {/* {manufacture?.minimumQuantity}{" "}
               {manufacture?.minimumQuantity "number"
