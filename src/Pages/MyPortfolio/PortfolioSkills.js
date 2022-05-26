@@ -3,8 +3,8 @@ import web from "../../images/web.jpg";
 
 const PortfolioSkills = () => {
   return (
-    <div className="my-24">
-      <h1 className=" text-3xl text-sky-800 ">My Skills</h1>
+    <div>
+      <h1 className=" text-3xl text-sky-800 mb-0 ">My Skills</h1>
       <div class="hero min-h-screen">
         <div class="hero-content flex-col lg:flex-row-reverse">
           <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-slate-900 text-white">

@@ -37,7 +37,7 @@ const MyOrders = () => {
   return (
     <div>
       <h1>order : {orders?.length}</h1>
-      <div class="overflow-x-auto">
+      <div class="overflow-x-auto grid sm:grid-cols-1">
         <table class="table w-full">
           <thead>
             <tr>
@@ -79,8 +79,6 @@ const MyOrders = () => {
                       <button className="btn btn-xs btn-success">pay</button>
                     </Link>
                   )}
-                </td>
-                <td>
                   {order.price && order.paid && (
                     <div>
                       <p>

@@ -1,10 +1,23 @@
 # Space Electronics
 
-[My live website](https://github.com/facebook/create-react-app).
+[My live website](https://manufacturer-website-c6d47.web.app/).
 
-## Available Scripts
+## My websites different features and functionality :
 
-In the project directory, you can run:
+- created Admin Dashboard
+
+* In the Home page created header, banner, manufacturrer parts, review, contract us, Business summery, services
+
+- created an Admin role.
+- implemented payment process.
+
+* implemented email-password based authentication and one social authentication system.And error messages.
+* implemented jwt token in client side and verify it in server side.
+* Maked the full website responsive for mobile device and large device.
+* created two extra section one is customers review and second is why to choose us.
+* created Question and answer related blogs page.
+
+- Created my portfolio page
 
 ### `npm start`
 
