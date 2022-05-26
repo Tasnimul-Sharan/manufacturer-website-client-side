@@ -124,7 +124,6 @@ const ManufacturePurchases = () => {
                 <input
                   type="number"
                   class="input input-bordered"
-                  name="minimumQuantity"
                   defaultValue={manufacture?.minimumQuantity}
                 />
                 <input

@@ -78,7 +78,7 @@ function App() {
               </RequireAdmin>
             }
           ></Route>
-          <Route path="myprofile" element={<MyProfile />}></Route>
+          <Route path="myprofile/:id" element={<MyProfile />}></Route>
         </Route>
         <Route path="/blogs" element={<Blogs />}></Route>
         <Route path="/myportfolio" element={<MyPortfolio />}></Route>
@@ -87,14 +87,6 @@ function App() {
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <ToastContainer />
-      {/* Hammer.
-Screwdriver.
-Mallet.
-Axe.
-Saw.
-Scissors.
-Chisel.
-Pliers. */}
     </div>
   );
 }
