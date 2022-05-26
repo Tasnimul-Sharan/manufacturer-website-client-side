@@ -230,6 +230,7 @@ const ManufacturePurchases = () => {
               <img src={manufacture?.picture} alt="Shoes" class="rounded-xl" />
             </figure>
             <h2 class="card-title">{manufacture?.name}</h2>
+            <p>Description: {manufacture.description}</p>
             <p>price: ${manufacture.price}</p>
             <p>Available Quantity: {manufacture?.availableQuantity}</p>
             <p>Minimum Quantity: {manufacture?.minimumQuantity}</p>
