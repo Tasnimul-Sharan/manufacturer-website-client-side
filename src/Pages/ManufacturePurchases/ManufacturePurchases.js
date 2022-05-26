@@ -9,6 +9,7 @@ import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { isDisabled } from "@testing-library/user-event/dist/utils";
 // import Order from "./Order";
 // import OrderingUser from "./OrderingUser";
 
@@ -49,112 +50,29 @@ const ManufacturePurchases = () => {
   const onSubmit = (data) => {
     console.log(data);
 
-    // const quantity =
+    let quantity = manufacture?.minimumQuantity;
 
     axios.post("http://localhost:5005/orders", data).then((res) => {
       const { data } = res;
       console.log(data);
       if (
-        data
-        // manufacture.minimumQuantity <= quantity &&
-        // manufacture.availableQuantity > quantity
+        data &&
+        manufacture.minimumQuantity <= quantity &&
+        manufacture.availableQuantity > quantity
       ) {
         toast.success("You order have placed");
       } else {
         toast.error("You have to purchase at least minimum quantity");
       }
       refetch();
-      // setReload(!reload);
-      // refetch();
-      // setOrder(null);
     });
-    // };
   };
-
-  // const { register, handleSubmit } = useForm();
-  // const onSubmit = data => console.log(data);
-
-  // const handleOrder = (e) => {
-  // e.preventDefault();
-  // const reStockQuantity = e.target.minimumQuantity?.value;
-  // const reStockQuantity = e.target.quantity.value;
-
-  // const quantity = e.target.minimumQuantity.value;
-  // // console.log(manufacture);
-  // // console.log(typeof reStockQuantity);
-  // const minimumQuantity =
-  //   parseInt(manufacture.minimumQuantity) + parseInt(reStockQuantity);
-  // const stockQuantity = { minimumQuantity };
-  // console.log(stockQuantity);
-
-  // };
-  // const handleOrder = (e) => {
-  //   e.preventDefault();
-  //   // console.log(data);
-  // };
-
-  // const update = (e) => {
-  //   e.preventDefault();
-  //   const reStockQuantity = e.target.minimumQuantity?.value;
-  //   console.log(manufacture);
-  //   console.log(typeof reStockQuantity);
-  //   const minimumQuantity =
-  //     parseInt(manufacture.minimumQuantity) + parseInt(reStockQuantity);
-  //   const stockQuantity = { minimumQuantity };
-  //   console.log(stockQuantity);
-  //   // refetch();
-  // };
 
   if (isLoading || loading) {
     return <Loading />;
   }
 
-  // if (error) {
-  //   console.log(error);
-  // }
-
   return (
-    // // <div class="card bg-neutral text-neutral-content">
-    // //   <div class="card-body items-center text-center">
-    // //     <div>
-    // //       {order && (
-    // //         <OrderingUser
-    // //           setOrder={setOrder}
-    // //           order={order}
-    // //           refetch={refetch}
-    // //         ></OrderingUser>
-    // //       )}
-    // //     </div>
-    // //     <div>
-    // //       {<Order setOrder={setOrder} manufacture={manufacture}></Order>}
-    // //     </div>
-    //     {/* <figure class="px-10 pt-10">
-    //       <img src={manufacture?.picture} alt="Shoes" class="rounded-xl" />
-    //     </figure>
-    //     <h2 class="card-title">{manufacture?.name}</h2>
-    //     <p>{manufacture?.price}</p>
-    //     <p>{manufacture?.available_quantity}</p>
-    //     <p>{manufacture?.minimum_quantity}</p>
-    //     <div class="card-actions justify-center">
-    //       <button class="btn btn-info">Update</button>
-    //       {/* <form> */}
-    //     {/* <input
-    //         type="number"
-    //         placeholder="Reduce"
-    //         class="input input-bordered "
-    //       /> */}
-    //     {/* </div> */}
-    //     {/* </form> */}
-    //     {/* <input
-    //       type="submit"
-    //       className="btn btn-success  w-full max-w-xs"
-    //       value="Place the Order"
-    //     /> */}
-    //     {/* <button className="btn btn-success">Place the order</button> */}
-    //     {/* </form> */}
-    //   {/* </div>
-    // </div> */}
-
     <div class="hero min-h-screen bg-base-200">
       <div class="hero-content flex-col  lg:flex-row-reverse ">
         <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -205,19 +123,13 @@ const ManufacturePurchases = () => {
                 />
                 <input
                   type="number"
-                  // placeholder="Update"
                   class="input input-bordered"
-                  // value="manufacture.minimum_quantity"
-                  // defaultValue={manufacture.minimumQuantity}
                   name="minimumQuantity"
                   defaultValue={manufacture?.minimumQuantity}
                 />
                 <input
                   type="submit"
                   className="btn  w-full max-w-xs"
-                  // disabled={
-                  //   minimumQuantity > quantity && availableQuantity < quantity
-                  // }
                   value="Place the Order"
                 />
               </div>

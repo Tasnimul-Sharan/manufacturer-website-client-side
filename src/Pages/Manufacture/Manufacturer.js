@@ -13,7 +13,7 @@ const Manufacturer = ({ manufacture }) => {
   } = manufacture;
   return (
     // <div className="">
-    <div class="card lg:max-w-lg bg-base-100 shadow-xl">
+    <div class="card lg:max-w-lg bg-neutral text-white shadow-xl">
       <figure class="px-10 pt-10">
         <img src={picture} alt="Shoes" class="rounded-xl" />
       </figure>
@@ -25,7 +25,7 @@ const Manufacturer = ({ manufacture }) => {
         <p>Minimum Quantity: {minimumQuantity}</p>
         <div class="card-actions">
           <Link to={`/purchases/${_id}`}>
-            <button class="btn btn-primary">Buy Now</button>
+            <button class="btn btn-success">Purchase Now</button>
           </Link>
         </div>
       </div>

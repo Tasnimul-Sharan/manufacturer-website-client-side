@@ -4,6 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
+import Loading from "../Shared/Loading";
 
 const MyProfile = () => {
   // const [user] =
@@ -12,47 +13,56 @@ const MyProfile = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    axios.post("http://localhost:5005/profile", data).then((res) => {
-      const { data } = res;
-      console.log(data);
-      if (data) {
-        toast("You have successfully add your information");
-      }
-      if (!data) {
-        fetch("http://localhost:5005/profile", {
-          method: "PUT",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(data),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            if (data) {
-              toast("You have successfully updated your profile");
-            }
-          });
-      }
-    });
+    // axios.post("http://localhost:5005/profile", data).then((res) => {
+    //   const { data } = res;
+    //   console.log(data);
+    //   if (data) {
+    //     toast.success("You have successfully add your information");
+    //   }
+    const id = data?._id;
+
+    //   else {
+    // fetch("http://localhost:5005/profile", {
+    fetch(`http://localhost:5005/profile/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data) {
+          toast.success("You have successfully save your profile");
+        } else {
+          toast.success("You have successfully updated your profile");
+        }
+      });
+    //   }
+    // });
   };
 
-  const updateProfile = () => {
-    // fetch("http://localhost:5005/profile", {
-    //   method: "PUT",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(data),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     if (data) {
-    //       toast("You have successfully updated your profile");
-    //     }
-    //   });
-  };
+  if (loading) {
+    return <Loading />;
+  }
+
+  //   const updateProfile = () => {
+  // fetch("http://localhost:5005/profile", {
+  //   method: "PUT",
+  //   headers: {
+  //     "content-type": "application/json",
+  //   },
+  //   body: JSON.stringify(data),
+  // })
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     console.log(data);
+  //     if (data) {
+  //       toast("You have successfully updated your profile");
+  //     }
+  //   });
+  //   };
 
   return (
     <div className="flex justify-center items-center h-screen">
@@ -108,14 +118,10 @@ const MyProfile = () => {
                 className="btn  w-full max-w-xs"
                 value="save profile"
               />
-              {/* <input
-                type="submit"
-                className="btn  w-full max-w-xs"
-                value="update profile "
-              /> */}
-              <button className="btn" onClick={onSubmit}>
+
+              {/* <button className="btn" onClick={onSubmit}>
                 Update Profile
-              </button>
+              </button> */}
             </div>
           </form>
         </div>

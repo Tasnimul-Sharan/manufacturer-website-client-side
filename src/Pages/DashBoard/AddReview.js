@@ -46,7 +46,7 @@ const AddReview = () => {
                 {...register("ratings", { min: 1, max: 5 })}
               />
               <input
-                class="input input-bordered w-full max-w-xs btn"
+                class="input input-bordered w-full max-w-xs btn btn-active"
                 type="submit"
                 value="Add review"
               />
