@@ -53,7 +53,21 @@ const Blogs = () => {
             How does prototypical inheritance work?
           </div>
           <div class="collapse-content">
-            <p></p>
+            <p>
+              Everything in Javascript is an object. Even when creating a Class
+              is an Object via an Object or Constructor Function. This is how
+              Javascript does class-based programming as to other traditional
+              Object-Oriented Programming languages where they use the keyword
+              class and inheritance. Javascript’s version of class-based
+              programming and other traditional class-based programming
+              languages work with the same concept but does not work exactly
+              similar. There are differences in its keyword, syntax, and how it
+              works. There are also debates regarding pros and cons of
+              Javascript’s version of class-based programming.the core idea of
+              Prototypal Inheritance is that an object can point to another
+              object and inherit all its properties. The main purpose is to
+              allow multiple instances of an object to share common properties.
+            </p>
           </div>
         </div>
         <div
