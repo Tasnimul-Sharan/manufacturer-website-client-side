@@ -19,7 +19,7 @@ import RequireAdmin from "./Pages/Login/RequireAdmin";
 import AddProduct from "./Pages/DashBoard/AddProduct";
 import ManageProduct from "./Pages/DashBoard/ManageProduct";
 import Payment from "./Pages/DashBoard/Payment";
-import ManageAllProducts from "./Pages/DashBoard/ManageAllProducts";
+import ManageAllOrders from "./Pages/DashBoard/ManageAllOrders";
 import Blogs from "./Pages/Blogs/Blogs";
 import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
 
@@ -74,7 +74,7 @@ function App() {
             path="manageallproduct"
             element={
               <RequireAdmin>
-                <ManageAllProducts />
+                <ManageAllOrders />
               </RequireAdmin>
             }
           ></Route>

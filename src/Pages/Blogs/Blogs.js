@@ -2,9 +2,9 @@ import React from "react";
 
 const Blogs = () => {
   return (
-    <div className="">
-      <h1>Some Questions and Answer</h1>
-      <div className="lg:w-max justify-center items-center h-screen ">
+    <div className="my-10">
+      <h1 className="text-3xl text-gray-900 mb-5">Some Questions and Answer</h1>
+      <div className="">
         <div
           tabindex="0"
           class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box"

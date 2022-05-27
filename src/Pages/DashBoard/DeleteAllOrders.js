@@ -1,17 +1,17 @@
 import React from "react";
 import { toast } from "react-toastify";
 
-const DeleteManageParts = ({
-  deleteParts,
-  setDeleteParts,
+const DeleteAllOrders = ({
+  deleteOrders,
+  setDeleteOrders,
   reload,
   setReload,
 }) => {
-  const { _id } = deleteParts;
-  console.log(deleteParts);
+  const { _id } = deleteOrders;
+  console.log(deleteOrders);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5005/parts/${id}`, {
+    fetch(`http://localhost:5005/allOrders/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -22,7 +22,7 @@ const DeleteManageParts = ({
         console.log(data);
         if (data.deletedCount) {
           toast.success("You have deleted the parts");
-          setDeleteParts(true);
+          setDeleteOrders(true);
           setReload(!reload);
         }
       });
@@ -30,7 +30,7 @@ const DeleteManageParts = ({
 
   return (
     <div>
-      <input type="checkbox" id="delete-modal" class="modal-toggle" />
+      <input type="checkbox" id="delete-all-order-modal" class="modal-toggle" />
       <div class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
           <h3 class="font-bold text-lg text-red-700">
@@ -47,7 +47,7 @@ const DeleteManageParts = ({
             >
               Delete
             </button>
-            <label for="delete-modal" class="btn btn-xs">
+            <label for="delete-all-order-modal" class="btn btn-xs">
               cancel
             </label>
           </div>
@@ -57,4 +57,4 @@ const DeleteManageParts = ({
   );
 };
 
-export default DeleteManageParts;
+export default DeleteAllOrders;

@@ -1,28 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useQuery } from "react-query";
-import Loading from "../Shared/Loading";
 import DeleteManageParts from "./DeleteManageParts";
 import ManageRow from "./ManageRow";
 
 const ManageProduct = () => {
-  const [deleteParts, setDeleteParts] = useState(null);
+  const [deleteParts, setDeleteParts] = useState(false);
   const [reload, setReload] = useState(true);
   console.log(deleteParts);
-  //   const {
-  //     data: manufactures,
-  //     isLoading,
-  //     refetch,
-  //   } = useQuery("manufactures", () =>
-  //     fetch("http://localhost:5005/parts", {
-  //       headers: {
-  //         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-  //       },
-  //     })
-  //       .then((res) => {
-  //         return res.json();
-  //       })
-  //       .then((data) => console.log(data[0]))
-  //   );
+
   const [manufactures, setManufactures] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5005/parts", {
@@ -35,19 +19,16 @@ const ManageProduct = () => {
       .then((data) => setManufactures(data));
   }, [reload]);
 
-  //   if (isLoading) {
-  //     return <Loading />;
-  //   }
-
   return (
     <div>
       <div class="overflow-x-auto">
-        <table class="table w-full">
+        <table class="table  sm:max-w-screen-sm">
           <thead>
             <tr>
               <th></th>
               <th>Picture</th>
               <th>Parts name</th>
+              <th>price</th>
               <th>Minimum Quantity</th>
               <th>Available Quantity</th>
               <th>Action</th>

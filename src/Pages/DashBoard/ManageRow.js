@@ -14,7 +14,7 @@ const ManageRow = ({ manufacture, setDeleteParts, index }) => {
         </div>
       </td>
       <td>{name}</td>
-      <td>{price}</td>
+      <td>${price}</td>
       <td>{availableQuantity}</td>
       <td>{minimumQuantity}</td>
       <td>

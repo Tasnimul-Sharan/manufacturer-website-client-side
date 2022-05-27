@@ -64,6 +64,12 @@ const AddProduct = () => {
                 {...register("partsname")}
               />
               <input
+                type="text"
+                placeholder="Description"
+                class="input input-bordered w-full max-w-xs"
+                {...register("description")}
+              />
+              <input
                 type="number"
                 placeholder="Enter a price"
                 class="input input-bordered w-full max-w-xs"
