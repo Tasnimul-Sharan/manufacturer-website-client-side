@@ -15,11 +15,9 @@ import { isDisabled } from "@testing-library/user-event/dist/utils";
 
 const ManufacturePurchases = () => {
   const { maufactureId } = useParams();
-  // const [order, setOrder] = useState(null);
+
   const [user, loading, error] = useAuthState(auth);
   const [quantity, setQuantity] = useState(0);
-  // const [reload, setReload] = useState(true);
-  // const [manufacture, setManufacture] = useState([]);
   const [disabled, setDisable] = useState(true);
 
   const {
@@ -27,8 +25,8 @@ const ManufacturePurchases = () => {
     isLoading,
     refetch,
   } = useQuery(["parts", maufactureId], () =>
-    fetch(`http://localhost:5005/parts/${maufactureId}`).then((res) =>
-      res.json()
+    fetch(`https://pure-stream-81976.herokuapp.com/parts/${maufactureId}`).then(
+      (res) => res.json()
     )
   );
   useEffect(() => {
@@ -36,70 +34,33 @@ const ManufacturePurchases = () => {
       setQuantity(manufacture.minimumQuantity);
     }
   }, [manufacture]);
-  // useEffect(() => {
-  //   fetch(`http://localhost:5005/parts/${maufactureId}`)
-  //     .then((res) => res.json())
-  //     .then((data) => setManufacture(data));
-  // }, []);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isDirty, isSubmitting, touchedFields, submitCount },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    // const handleOrder = (e) => {
-    // console.log(data);
-    // e.preventDefault();
+    axios
+      .post("https://pure-stream-81976.herokuapp.com/orders", data)
+      .then((res) => {
+        const { data } = res;
+        console.log(data);
+        if (
+          quantity >= manufacture?.minimumQuantity &&
+          quantity <= manufacture.availableQuantity
+        ) {
+          toast.success("You order have placed");
+        } else {
+          toast.error(
+            "You have to purchase at least minimum quantity or available quantity"
+          );
+        }
 
-    // const order = {
-    //   email: user.email,
-    //   name: user.displayName,
-    //   partsName: manufacture?.name,
-    //   price: manufacture.price,
-    //   img: manufacture?.picture,
-    // };
-
-    // const quantity = data.manufacture?.minimumQuantity;
-
-    axios.post("http://localhost:5005/orders", data).then((res) => {
-      const { data } = res;
-      console.log(data);
-      // if (data && manufacture?.minimumQuantity <= minimumQuantity) {
-      // if (
-      //   data.manufacture?.minimumQuantity &&
-      //   data.manufacture?.availableQuantity
-      // ) {
-      // if (
-      //   manufacture?.minimumQuantity < quantity &&
-      //   manufacture?.availableQuantity > quantity
-      // ) {
-      // }
-      if (
-        quantity >= manufacture?.minimumQuantity &&
-        quantity <= manufacture.availableQuantity
-      ) {
-        toast.success("You order have placed");
-      } else {
-        toast.error(
-          "You have to purchase at least minimum quantity or available quantity"
-        );
-      }
-
-      refetch();
-    });
-    // const minimumQuantity = data.minimumQuantity;
+        refetch();
+      });
   };
-
-  // const handleError = (e) => {
-  //   // const qu = e.
-  // };
 
   if (isLoading || loading) {
     return <Loading />;
   }
-  // <form onSubmit={handleOrder}>
 
   return (
     <div class="hero min-h-screen bg-base-200">
@@ -153,48 +114,26 @@ const ManufacturePurchases = () => {
                 <input
                   type="number"
                   class="input input-bordered"
-                  // onChange={quantity}
-                  // setValue('name', 'value', { shouldDirty: true })
-                  // setValue('yourDetails', { firstName: 'value' }); // less performant
-
-                  //  register('nestedValue', { value: { test: 'data' } });
-                  // {...register("quantity", {
-                  //   submitCount: {
-                  //     min: manufacture?.minimumQuantity,
-                  //     max: manufacture?.availableQuantity,
-                  //     message:
-                  //       "You have to purchase at least minimum quantity or available quantity",
-                  //   },
-                  // })}
                   defaultValue={manufacture?.minimumQuantity}
                   onChange={(e) => {
                     if (
                       e.target.value < manufacture.minimumQuantity ||
                       e.target.value > manufacture.availableQuantity
                     ) {
-                      toast(
+                      toast.error(
                         "You have to purchase at least minimum quantity or available quantity"
                       );
                     }
                     setQuantity(e.target.value);
                   }}
-                  // value={(e) => setQuantity(e)}
-                  //                   register('registerInput', { minLength: 4 }});
-                  // setError('registerInput', { type: 'custom', message: 'custom message' });
-                  // validation will pass as long as minLength requirement pass
                 />
                 <input
                   type="submit"
-                  // return
                   disabled={
                     quantity < manufacture.minimumQuantity ||
                     quantity > manufacture.availableQuantity
                   }
-                  onChange={() => setDisable(false)}
-                  // onClick={disabled}
-                  // quantity < manufacture.minimumQuantity &&
-                  // quantity > manufacture.availableQuantity
-                  // disabled={value}
+                  onChange={() => setDisable(disabled)}
                   className="btn  w-full max-w-xs"
                   value="Place the Order"
                 />
@@ -212,12 +151,6 @@ const ManufacturePurchases = () => {
             <p>price: ${manufacture.price}</p>
             <p>Available Quantity: {manufacture?.availableQuantity}</p>
             <p>Minimum Quantity: {manufacture?.minimumQuantity}</p>
-            {/* <p> */}
-            {/* {manufacture?.minimumQuantity}{" "}
-              {manufacture?.minimumQuantity "number"
-                ? "You can't do this"
-                : ""}
-            </p> */}
           </div>
         </div>
       </div>

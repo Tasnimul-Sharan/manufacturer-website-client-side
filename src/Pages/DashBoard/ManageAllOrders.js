@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useQuery } from "react-query";
-import Loading from "../Shared/Loading";
 import DeleteAllOrders from "./DeleteAllOrders";
-import DeleteOrderParts from "./DeleteOrderParts";
 import UseOrderRow from "./UseOrderRow";
 
 const ManageAllOrders = () => {
@@ -13,7 +10,7 @@ const ManageAllOrders = () => {
   const [shipped, setShipped] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5005/allOrders", {
+    fetch("https://pure-stream-81976.herokuapp.com/allOrders", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -22,23 +19,12 @@ const ManageAllOrders = () => {
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [reload]);
-  // const {
-  //   data: orders,
-  //   isLoading,
-  //   refetch,
-  // );
-  // console.log(orders);
-  // } = useQuery("orders", () =>
-
-  // if (isLoading) {
-  //   return <Loading />;
-  // }
 
   return (
     <div>
       <h1>All the Orders</h1>
       <div class="overflow-x-auto">
-        <table class="table w-full">
+        <table class="table-auto w-full">
           <thead>
             <tr>
               <th></th>

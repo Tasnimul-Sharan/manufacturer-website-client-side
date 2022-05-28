@@ -6,13 +6,15 @@ import { toast } from "react-toastify";
 const AddReview = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    axios.post("http://localhost:5005/reviews", data).then((res) => {
-      const { data } = res;
-      console.log(data);
-      if (data) {
-        toast.success("Thanks for adding a review");
-      }
-    });
+    axios
+      .post("https://pure-stream-81976.herokuapp.com/reviews", data)
+      .then((res) => {
+        const { data } = res;
+        console.log(data);
+        if (data) {
+          toast.success("Thanks for adding a review");
+        }
+      });
     console.log(data);
   };
   return (

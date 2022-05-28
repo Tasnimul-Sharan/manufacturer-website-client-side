@@ -9,7 +9,7 @@ const ManageProduct = () => {
 
   const [manufactures, setManufactures] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5005/parts", {
+    fetch("https://pure-stream-81976.herokuapp.com/parts", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -22,7 +22,7 @@ const ManageProduct = () => {
   return (
     <div>
       <div class="overflow-x-auto">
-        <table class="table  sm:max-w-screen-sm">
+        <table class="table-auto w-full">
           <thead>
             <tr>
               <th></th>

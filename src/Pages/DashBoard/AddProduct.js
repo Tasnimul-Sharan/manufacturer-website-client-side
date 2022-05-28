@@ -29,9 +29,10 @@ const AddProduct = () => {
             price: data.price,
             availableQuantity: data.availableQuantity,
             minimumQuantity: data.minimumQuantity,
+            description: data.description,
             picture: picture,
           };
-          fetch("http://localhost:5005/parts", {
+          fetch("https://pure-stream-81976.herokuapp.com/parts", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -64,7 +65,7 @@ const AddProduct = () => {
                 {...register("partsname")}
               />
               <input
-                type="text"
+                // type="text"
                 placeholder="Description"
                 class="input input-bordered w-full max-w-xs"
                 {...register("description")}

@@ -14,7 +14,7 @@ const CheckoutForm = ({ manufacture }) => {
 
   useEffect(() => {
     // if (price) {
-    fetch("http://localhost:5005/create-payment-intent", {
+    fetch("https://pure-stream-81976.herokuapp.com/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -78,7 +78,7 @@ const CheckoutForm = ({ manufacture }) => {
         transactionId: paymentIntent.id,
       };
 
-      fetch(`http://localhost:5005/orders/${_id}`, {
+      fetch(`https://pure-stream-81976.herokuapp.com/orders/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

@@ -12,7 +12,7 @@ const UseOrderRow = ({
   const { image, price, partsname, _id } = order;
 
   const handleShipped = () => {
-    fetch(`http://localhost:5005/payments/${_id}`, {
+    fetch(`https://pure-stream-81976.herokuapp.com/payments/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -66,22 +66,8 @@ const UseOrderRow = ({
                 onClick={() => handleShipped(shipped)}
                 className="btn btn-success"
               >
-                {/* Pending {order?.paid ? "shipped" : ""} */}
-
-                {/* {order?.status === "shipped"
-                  ? shipped
-                  : order?.paid
-                  ? "pending"
-                  : "unpaid"} */}
-
-                {/* pending */}
-                {/* {shipped} */}
-
                 {order?.status ? "shipped" : order?.paid ? "pending" : "unpaid"}
-                {/* pending */}
-                {/* {shipped} */}
               </button>
-              {/* <span className="text-lime-700">pending</span> */}
             </p>
           </div>
         )}

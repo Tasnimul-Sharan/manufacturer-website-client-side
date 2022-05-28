@@ -7,11 +7,11 @@ const DeleteAllOrders = ({
   reload,
   setReload,
 }) => {
-  const { _id } = deleteOrders;
+  const { partsname, _id } = deleteOrders;
   console.log(deleteOrders);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5005/allOrders/${id}`, {
+    fetch(`https://pure-stream-81976.herokuapp.com/allOrders/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -36,10 +36,7 @@ const DeleteAllOrders = ({
           <h3 class="font-bold text-lg text-red-700">
             Are you sure want to delete
           </h3>
-          <p class="py-4">
-            You've been selected for a chance to get one year of subscription to
-            use Wikipedia for free!
-          </p>
+          <p class="py-4 text-red-600 text-">{partsname}</p>
           <div class="modal-action">
             <button
               onClick={() => handleDelete(_id)}
