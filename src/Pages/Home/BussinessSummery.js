@@ -1,6 +1,7 @@
 import {
   faAddressBook,
   faFaceLaugh,
+  faHardDrive,
   faLaptop,
   faMoneyBill,
   faMoneyBillTransfer,
@@ -27,13 +28,13 @@ const BussinessSummery = () => {
               {" "}
               <FontAwesomeIcon
                 className="fontawsome bg-slate-800"
-                icon={faTools}
+                icon={faHardDrive}
               ></FontAwesomeIcon>
             </h2>
             <p className="text-5xl text-sky-800">
               1000+
               <br />
-              <span className="text-slate-900">Tools</span>
+              <span className="text-slate-900">Parts</span>
             </p>
           </div>
         </div>

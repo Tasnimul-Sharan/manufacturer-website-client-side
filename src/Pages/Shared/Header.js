@@ -33,7 +33,6 @@ const Header = () => {
           Logout
         </button>
       ) : (
-        // <span>{user.displayName}</span>
         <li>
           <Link to="/login">Login</Link>
         </li>
@@ -71,8 +70,8 @@ const Header = () => {
         </div>
         <div className="flex justify-items-center mb-8">
           <Link to="/" class="btn btn-ghost normal-case text-xl">
-            <img className="w-20" src={pic} alt="" />
-            <span>Space Electronics</span>
+            <img className="w-16" src={pic} alt="" />
+            <span className="m-3">Space Electronics</span>
           </Link>
         </div>
       </div>

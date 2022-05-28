@@ -22,7 +22,7 @@ const Service = () => {
         Why to Choose Space Electronics
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        <div class="card w-50 bg-base-100 shadow-xl">
+        <div class="card w-50 shadow-xl">
           <div class="card-body">
             <h2>
               <FontAwesomeIcon

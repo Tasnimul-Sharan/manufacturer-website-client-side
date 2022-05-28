@@ -3,7 +3,7 @@ import DeleteManageParts from "./DeleteManageParts";
 import ManageRow from "./ManageRow";
 
 const ManageProduct = () => {
-  const [deleteParts, setDeleteParts] = useState(false);
+  const [deleteParts, setDeleteParts] = useState(true);
   const [reload, setReload] = useState(true);
   console.log(deleteParts);
 
@@ -50,7 +50,6 @@ const ManageProduct = () => {
         <DeleteManageParts
           deleteParts={deleteParts}
           setDeleteParts={setDeleteParts}
-          //   refetch={refetch}
           manufacture={manufactures}
           reload={reload}
           setReload={setReload}

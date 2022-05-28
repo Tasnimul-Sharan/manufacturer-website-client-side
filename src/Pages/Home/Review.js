@@ -6,7 +6,7 @@ import React from "react";
 const Review = ({ review }) => {
   const { name, image, description, ratings } = review;
   return (
-    <div class="card lg:max-w-lg bg-base-100 bg-slate-900 text-white shadow-xl">
+    <div class="card lg:max-w-lg  bg-slate-900 text-white shadow-xl">
       <div class="card-body items-center text-center">
         <div class="avatar">
           <div class="w-24 rounded-full">

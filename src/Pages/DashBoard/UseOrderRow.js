@@ -1,7 +1,30 @@
 import React from "react";
 
-const UseOrderRow = ({ order, index, setDeleteOrders }) => {
-  const { image, price, partsname } = order;
+const UseOrderRow = ({
+  order,
+  index,
+  setDeleteOrders,
+  setShipped,
+  shipped,
+}) => {
+  const { image, price, partsname, _id } = order;
+
+  const handleShipped = () => {
+    fetch(`http://localhost:5005/payments/${_id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (order?.paid) {
+          setShipped("Shipped");
+        }
+      });
+  };
   return (
     <tr>
       <th>{index + 1}</th>
@@ -13,7 +36,7 @@ const UseOrderRow = ({ order, index, setDeleteOrders }) => {
         </div>
       </td>
       <td>{partsname}</td>
-      <td>{price}</td>
+      <td>${price}</td>
       <td>
         <label
           onClick={() => setDeleteOrders(order)}
@@ -22,6 +45,34 @@ const UseOrderRow = ({ order, index, setDeleteOrders }) => {
         >
           Delete
         </label>
+      </td>
+      <td>
+        {order.price && !order.paid && (
+          <div>
+            <p>
+              {" "}
+              <span className="text-error">unpaid</span>
+            </p>
+          </div>
+        )}
+        {order.price && order.paid && (
+          <div>
+            <p>
+              {" "}
+              <button
+                onClick={() => handleShipped(shipped)}
+                className="btn btn-success"
+              >
+                {/* Pending {order?.paid ? "shipped" : ""} */}
+
+                {order.paid ? "pending" : { shipped }}
+                {/* pending */}
+                {/* {shipped} */}
+              </button>
+              {/* <span className="text-lime-700">pending</span> */}
+            </p>
+          </div>
+        )}
       </td>
     </tr>
   );

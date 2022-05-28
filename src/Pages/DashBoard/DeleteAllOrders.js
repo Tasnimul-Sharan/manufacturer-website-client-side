@@ -22,7 +22,7 @@ const DeleteAllOrders = ({
         console.log(data);
         if (data.deletedCount) {
           toast.success("You have deleted the parts");
-          setDeleteOrders(true);
+          setDeleteOrders(false);
           setReload(!reload);
         }
       });

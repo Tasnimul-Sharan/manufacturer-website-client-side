@@ -29,12 +29,9 @@ const DeleteOrderParts = ({ deleting, setDeleting, setReload, reload }) => {
       <div class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
           <h3 class="font-bold text-lg text-red-700">
-            Are you sure want to delete {partsname}
+            Are you sure want to delete
           </h3>
-          <p class="py-4">
-            You've been selected for a chance to get one year of subscription to
-            use Wikipedia for free!
-          </p>
+          <p class="py-4 font-bold text-slate-700">{partsname}</p>
           <div class="modal-action">
             <button
               onClick={() => handleDelete(email)}

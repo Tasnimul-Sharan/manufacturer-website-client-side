@@ -7,7 +7,7 @@ const DeleteManageParts = ({
   reload,
   setReload,
 }) => {
-  const { _id } = deleteParts;
+  const { name, _id } = deleteParts;
   console.log(deleteParts);
 
   const handleDelete = (id) => {
@@ -22,7 +22,7 @@ const DeleteManageParts = ({
         console.log(data);
         if (data.deletedCount) {
           toast.success("You have deleted the parts");
-          setDeleteParts(true);
+          setDeleteParts(false);
           setReload(!reload);
         }
       });
@@ -36,10 +36,7 @@ const DeleteManageParts = ({
           <h3 class="font-bold text-lg text-red-700">
             Are you sure want to delete
           </h3>
-          <p class="py-4">
-            You've been selected for a chance to get one year of subscription to
-            use Wikipedia for free!
-          </p>
+          <p class="py-4 text-bold text-sky-800">{name}</p>
           <div class="modal-action">
             <button
               onClick={() => handleDelete(_id)}

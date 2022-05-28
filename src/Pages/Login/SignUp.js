@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import auth from "../../firebase.init";
 import {
@@ -27,9 +27,11 @@ const SignUp = () => {
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
-  if (token) {
-    navigate(from, { replace: true });
-  }
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [token, from, navigate]);
 
   let signInError;
   if (error || gError || updateError) {

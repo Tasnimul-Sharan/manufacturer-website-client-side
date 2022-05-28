@@ -8,8 +8,9 @@ import UseOrderRow from "./UseOrderRow";
 const ManageAllOrders = () => {
   const [orders, setOrders] = useState([]);
   // const [user] = useAuthState(auth);
-  const [deleteOrders, setDeleteOrders] = useState(null);
+  const [deleteOrders, setDeleteOrders] = useState(true);
   const [reload, setReload] = useState(true);
+  const [shipped, setShipped] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:5005/allOrders", {
@@ -45,6 +46,7 @@ const ManageAllOrders = () => {
               <th>Parts name</th>
               <th>price</th>
               <th>Action</th>
+              <th>Payment</th>
             </tr>
           </thead>
           <tbody>
@@ -54,6 +56,8 @@ const ManageAllOrders = () => {
                 order={order}
                 index={index}
                 setDeleteOrders={setDeleteOrders}
+                setShipped={setShipped}
+                shipped={shipped}
               ></UseOrderRow>
             ))}
           </tbody>
@@ -63,7 +67,6 @@ const ManageAllOrders = () => {
         <DeleteAllOrders
           deleteOrders={deleteOrders}
           setDeleteOrders={setDeleteOrders}
-          // refetch={refetch}
           setReload={setReload}
           reload={reload}
         ></DeleteAllOrders>
