@@ -20,7 +20,7 @@ const ManufacturePurchases = () => {
   const [quantity, setQuantity] = useState(0);
   // const [reload, setReload] = useState(true);
   // const [manufacture, setManufacture] = useState([]);
-  // const [disabled, setDisable] = useState(true);
+  const [disabled, setDisable] = useState(true);
 
   const {
     data: manufacture,
@@ -77,7 +77,7 @@ const ManufacturePurchases = () => {
       // ) {
       // }
       if (
-        quantity >= manufacture?.minimumQuantity ||
+        quantity >= manufacture?.minimumQuantity &&
         quantity <= manufacture.availableQuantity
       ) {
         toast.success("You order have placed");
@@ -169,7 +169,7 @@ const ManufacturePurchases = () => {
                   defaultValue={manufacture?.minimumQuantity}
                   onChange={(e) => {
                     if (
-                      e.target.value < manufacture.minimumQuantity &&
+                      e.target.value < manufacture.minimumQuantity ||
                       e.target.value > manufacture.availableQuantity
                     ) {
                       toast(
@@ -187,10 +187,10 @@ const ManufacturePurchases = () => {
                   type="submit"
                   // return
                   disabled={
-                    quantity < manufacture.minimumQuantity &&
+                    quantity < manufacture.minimumQuantity ||
                     quantity > manufacture.availableQuantity
                   }
-                  // onChange={() => setDisable(false)}
+                  onChange={() => setDisable(false)}
                   // onClick={disabled}
                   // quantity < manufacture.minimumQuantity &&
                   // quantity > manufacture.availableQuantity

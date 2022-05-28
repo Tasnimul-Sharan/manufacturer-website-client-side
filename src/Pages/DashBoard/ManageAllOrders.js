@@ -58,6 +58,8 @@ const ManageAllOrders = () => {
                 setDeleteOrders={setDeleteOrders}
                 setShipped={setShipped}
                 shipped={shipped}
+                setReload={setReload}
+                reload={reload}
               ></UseOrderRow>
             ))}
           </tbody>

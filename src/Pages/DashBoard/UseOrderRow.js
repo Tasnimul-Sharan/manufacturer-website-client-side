@@ -6,6 +6,8 @@ const UseOrderRow = ({
   setDeleteOrders,
   setShipped,
   shipped,
+  setReload,
+  reload,
 }) => {
   const { image, price, partsname, _id } = order;
 
@@ -21,7 +23,8 @@ const UseOrderRow = ({
       .then((data) => {
         console.log(data);
         if (order?.paid) {
-          setShipped("Shipped");
+          setShipped("shipped");
+          setReload(!reload);
         }
       });
   };
@@ -65,7 +68,16 @@ const UseOrderRow = ({
               >
                 {/* Pending {order?.paid ? "shipped" : ""} */}
 
-                {order.paid ? "pending" : { shipped }}
+                {/* {order?.status === "shipped"
+                  ? shipped
+                  : order?.paid
+                  ? "pending"
+                  : "unpaid"} */}
+
+                {/* pending */}
+                {/* {shipped} */}
+
+                {order?.status ? "shipped" : order?.paid ? "pending" : "unpaid"}
                 {/* pending */}
                 {/* {shipped} */}
               </button>
