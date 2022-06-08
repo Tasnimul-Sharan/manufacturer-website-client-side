@@ -9,9 +9,7 @@
 * In the Home page created header, banner, manufacturrer parts, review, contract us, Business summery, services.
 * implemented email-password based authentication and one social authentication system.And error messages.
 
-- After login, a user can place the order. An user can see their products on my order page and give feedback by ratings.
-- implemented payment process.
-
+- After login, a user can place the order. An user can see their products on my order page and give feedback by ratings.Implemented payment process.
 * implemented jwt token in client side and verify it in server side.
 * Maked the full website responsive for mobile device and large device.
 * created two extra section one is customers review and second is why to choose us.
