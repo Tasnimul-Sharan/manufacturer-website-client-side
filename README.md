@@ -4,14 +4,14 @@
 
 ## My websites different features and functionality :
 
-- created Admin Dashboard
+- created Admin Dashboard, created an Admin role. An admin can make another admin.
 
-* In the Home page created header, banner, manufacturrer parts, review, contract us, Business summery, services
+* In the Home page created header, banner, manufacturrer parts, review, contract us, Business summery, services.
+* implemented email-password based authentication and one social authentication system.And error messages.
 
-- created an Admin role.
+- After login, a user can place the order. An user can see their products on my order page and give feedback by ratings.
 - implemented payment process.
 
-* implemented email-password based authentication and one social authentication system.And error messages.
 * implemented jwt token in client side and verify it in server side.
 * Maked the full website responsive for mobile device and large device.
 * created two extra section one is customers review and second is why to choose us.
