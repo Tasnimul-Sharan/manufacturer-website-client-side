@@ -41,7 +41,6 @@ const Blogs = () => {
               3.Server state
               <br />
               4.URL state
-              <br />
             </p>
           </div>
         </div>

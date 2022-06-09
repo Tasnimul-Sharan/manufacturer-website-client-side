@@ -1,6 +1,6 @@
 # Space Electronics
 
-[My live website](https://manufacturer-website-c6d47.web.app/).
+- My live website : [https://manufacturer-website-c6d47.web.app/](https://manufacturer-website-c6d47.web.app/).
 
 ## My websites different features and functionality :
 
@@ -10,6 +10,7 @@
 * implemented email-password based authentication and one social authentication system.And error messages.
 
 - After login, a user can place the order. An user can see their products on my order page and give feedback by ratings.Implemented payment process.
+
 * implemented jwt token in client side and verify it in server side.
 * Maked the full website responsive for mobile device and large device.
 * created two extra section one is customers review and second is why to choose us.
