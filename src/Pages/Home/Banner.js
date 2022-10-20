@@ -10,7 +10,7 @@ const Banner = () => {
           class="lg:max-w-lg rounded-lg shadow-2xl"
           alt="banner"
         />
-        <div>
+        <div className="text-justify">
           <h1 class="text-5xl font-bold">Get best Laptop parts from here</h1>
           <p class="py-6 text-xl">
             Great Savings and Free Delivery! world class products Sign Up For
