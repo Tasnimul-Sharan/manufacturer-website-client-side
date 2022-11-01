@@ -10,7 +10,7 @@ const Reviews = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container mx-auto">
       <h1 className="text-5xl text-sky-700">Testimonials</h1>
       <h1 className="text-5xl mb-10 text-slate-800">
         What our customer say about us

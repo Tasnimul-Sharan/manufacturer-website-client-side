@@ -17,7 +17,7 @@ import "./Service.css";
 
 const Service = () => {
   return (
-    <section className="my-28">
+    <section className="my-28 container mx-auto">
       <h1 className="text-5xl text-sky-800 mb-5">
         Why to Choose Space Electronics
       </h1>
