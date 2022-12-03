@@ -10,7 +10,7 @@ const ManageAllOrders = () => {
   const [shipped, setShipped] = useState("");
 
   useEffect(() => {
-    fetch("https://pure-stream-81976.herokuapp.com/allOrders", {
+    fetch("http://localhost:5005/ allOrders", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

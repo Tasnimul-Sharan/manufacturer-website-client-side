@@ -19,7 +19,7 @@ const MyOrders = () => {
     const getOrders = async () => {
       if (user) {
         const { data } = await axios.get(
-          `https://pure-stream-81976.herokuapp.com/orders?email=${user?.email}`,
+          `http://localhost:5005/ orders?email=${user?.email}`,
           {
             headers: {
               authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -36,7 +36,9 @@ const MyOrders = () => {
 
   return (
     <div>
-      <h1>order : {orders?.length}</h1>
+      <h1 className="text-2xl text-gray-900 my-5">
+        Total Order : {orders?.length}
+      </h1>
       <div class="overflow-x-auto grid sm:grid-cols-1">
         <table class="table-auto w-full">
           <thead>

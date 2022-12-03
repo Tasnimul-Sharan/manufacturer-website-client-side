@@ -14,7 +14,7 @@ const MyProfile = () => {
   const onSubmit = (data) => {
     console.log(data);
     const email = user?.email;
-    fetch(`https://pure-stream-81976.herokuapp.com/profile/${email}`, {
+    fetch(`http://localhost:5005/ profile/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

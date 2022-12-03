@@ -11,7 +11,7 @@ const DeleteManageParts = ({
   console.log(deleteParts);
 
   const handleDelete = (id) => {
-    fetch(`https://pure-stream-81976.herokuapp.com/parts/${id}`, {
+    fetch(`http://localhost:5005/ parts/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -36,7 +36,7 @@ const DeleteManageParts = ({
           <h3 class="font-bold text-lg text-red-700">
             Are you sure want to delete
           </h3>
-          <p class="py-4 text-bold text-sky-800">{name}</p>
+          <p class="py-4 text-bold text-red-600">{name}</p>
           <div class="modal-action">
             <button
               onClick={() => handleDelete(_id)}

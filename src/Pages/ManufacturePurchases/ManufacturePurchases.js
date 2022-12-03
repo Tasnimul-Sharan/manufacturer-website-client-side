@@ -25,8 +25,8 @@ const ManufacturePurchases = () => {
     isLoading,
     refetch,
   } = useQuery(["parts", maufactureId], () =>
-    fetch(`https://pure-stream-81976.herokuapp.com/parts/${maufactureId}`).then(
-      (res) => res.json()
+    fetch(`http://localhost:5005/parts/${maufactureId}`).then((res) =>
+      res.json()
     )
   );
   useEffect(() => {
@@ -38,24 +38,22 @@ const ManufacturePurchases = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    axios
-      .post("https://pure-stream-81976.herokuapp.com/orders", data)
-      .then((res) => {
-        const { data } = res;
-        console.log(data);
-        if (
-          quantity >= manufacture?.minimumQuantity &&
-          quantity <= manufacture.availableQuantity
-        ) {
-          toast.success("You order have placed");
-        } else {
-          toast.error(
-            "You have to purchase at least minimum quantity or available quantity"
-          );
-        }
+    axios.post("http://localhost:5005/orders", data).then((res) => {
+      const { data } = res;
+      console.log(data);
+      if (
+        quantity >= manufacture?.minimumQuantity &&
+        quantity <= manufacture.availableQuantity
+      ) {
+        toast.success("You order have placed");
+      } else {
+        toast.error(
+          "You have to purchase at least minimum quantity or available quantity"
+        );
+      }
 
-        refetch();
-      });
+      refetch();
+    });
   };
 
   if (isLoading || loading) {

@@ -11,7 +11,7 @@ const DeleteAllOrders = ({
   console.log(deleteOrders);
 
   const handleDelete = (id) => {
-    fetch(`https://pure-stream-81976.herokuapp.com/allOrders/${id}`, {
+    fetch(`http://localhost:5005/ allOrders/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

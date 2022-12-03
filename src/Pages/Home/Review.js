@@ -1,7 +1,6 @@
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-// import StarIcon from "@heroicons/react/solid";
 
 const Review = ({ review }) => {
   const { name, image, description, ratings } = review;
@@ -23,7 +22,6 @@ const Review = ({ review }) => {
           <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
           <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
           <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
-          {/* <StarIcon></StarIcon> */}
         </h1>
         <p>{description}</p>
       </div>

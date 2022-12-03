@@ -32,7 +32,7 @@ const AddProduct = () => {
             description: data.description,
             picture: picture,
           };
-          fetch("https://pure-stream-81976.herokuapp.com/parts", {
+          fetch("http://localhost:5005/ parts", {
             method: "POST",
             headers: {
               "content-type": "application/json",

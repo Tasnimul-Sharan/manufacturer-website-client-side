@@ -76,7 +76,7 @@ const Header = () => {
             </Link>
           </div>
         </div>
-        <div className="navbar navbar-end">
+        <div className="navbar-end">
           <div className=" hidden lg:flex">
             <ul className="menu menu-horizontal p-0">{menuItems}</ul>
           </div>
