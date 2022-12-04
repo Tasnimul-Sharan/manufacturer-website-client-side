@@ -14,13 +14,13 @@ const Header = () => {
   const menuItems = (
     <>
       <li>
-        <Link to="/manufacture/:maufactureId">Manufacture parts</Link>
+        <Link to="/manufacture/:maufactureId">Laptop parts</Link>
       </li>
       <li>
         <Link to="/blogs">Blogs</Link>
       </li>
       <li>
-        <Link to="/myportfolio">My portfolio</Link>
+        <Link to="/myportfolio">Portfolio</Link>
       </li>
       {user && (
         <li>

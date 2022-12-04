@@ -32,7 +32,7 @@ const AddProduct = () => {
             description: data.description,
             picture: picture,
           };
-          fetch("http://localhost:5005/ parts", {
+          fetch("http://localhost:5005/parts", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -61,43 +61,43 @@ const AddProduct = () => {
               <input
                 type="text"
                 placeholder="Parts namae"
-                class="input input-bordered w-full max-w-xs"
+                class="input input-bordered w-full max-w-xs my-3"
                 {...register("partsname")}
               />
               <input
                 // type="text"
                 placeholder="Description"
-                class="input input-bordered w-full max-w-xs"
+                class="input input-bordered w-full max-w-xs my-3"
                 {...register("description")}
               />
               <input
                 type="number"
                 placeholder="Enter a price"
-                class="input input-bordered w-full max-w-xs"
+                class="input input-bordered w-full max-w-xs my-3"
                 {...register("price")}
               />
               <input
                 type="number"
                 placeholder="Enter an Available Quantity"
-                class="input input-bordered w-full max-w-xs"
+                class="input input-bordered w-full max-w-xs my-3"
                 {...register("availableQuantity")}
               />
               <input
                 type="number"
                 placeholder="Enter an Minimum Quantity"
-                class="input input-bordered w-full max-w-xs"
+                class="input input-bordered w-full max-w-xs my-3"
                 {...register("minimumQuantity")}
               />
 
               <input
                 type="file"
                 placeholder="Upload an image"
-                class="input input-bordered w-full max-w-xs"
+                class="input input-bordered w-full max-w-xs my-3"
                 {...register("image")}
               />
               <input
                 type="submit"
-                className="btn  w-full max-w-xs"
+                className="btn  w-full max-w-xs my-3"
                 value="Add Product"
               />
             </div>

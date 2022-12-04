@@ -6,7 +6,7 @@ const DeleteOrderParts = ({ deleting, setDeleting, setReload, reload }) => {
   console.log(deleting);
 
   const handleDelete = () => {
-    fetch(`http://localhost:5005/ orders/${email}`, {
+    fetch(`http://localhost:5005/orders/${email}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

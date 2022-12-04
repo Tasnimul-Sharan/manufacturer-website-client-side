@@ -14,7 +14,7 @@ const MyProfile = () => {
   const onSubmit = (data) => {
     console.log(data);
     const email = user?.email;
-    fetch(`http://localhost:5005/ profile/${email}`, {
+    fetch(`http://localhost:5005/profile/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -42,14 +42,14 @@ const MyProfile = () => {
             <div class="form-control w-full max-w-xs">
               <input
                 type="email"
-                class="input input-bordered w-full max-w-xs"
+                class="input input-bordered w-full max-w-xs my-3"
                 {...register("email")}
                 value={user?.email}
               />
               <input
                 type="text"
                 placeholder="Parts namae"
-                class="input input-bordered w-full max-w-xs"
+                class="input input-bordered w-full max-w-xs my-3"
                 {...register("name")}
                 value={user?.displayName}
               />
@@ -59,7 +59,7 @@ const MyProfile = () => {
               <input
                 type="text"
                 placeholder="Your Education"
-                class="input input-bordered w-full max-w-xs"
+                class="input input-bordered w-full max-w-xs my-3"
                 {...register("education")}
               />
               <label class="label">
@@ -68,24 +68,24 @@ const MyProfile = () => {
               <input
                 type="text"
                 placeholder="City/District"
-                class="input input-bordered w-full max-w-xs"
+                class="input input-bordered w-full max-w-xs my-3"
                 {...register("location")}
               />
               <input
                 type="number"
                 placeholder="Your Phone Number"
-                class="input input-bordered w-full max-w-xs"
+                class="input input-bordered w-full max-w-xs my-3"
                 {...register("phoneNumber")}
               />
               <input
                 type="url"
                 placeholder="Your Linkdin profille link"
-                class="input input-bordered w-full max-w-xs"
+                class="input input-bordered w-full max-w-xs my-3"
                 {...register("profileLink")}
               />
               <input
                 type="submit"
-                className="btn  w-full max-w-xs"
+                className="btn  w-full max-w-xs my-3"
                 value="save profile"
               />
             </div>

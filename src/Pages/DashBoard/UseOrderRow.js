@@ -12,7 +12,7 @@ const UseOrderRow = ({
   const { image, price, partsname, _id } = order;
 
   const handleShipped = () => {
-    fetch(`http://localhost:5005/ payments/${_id}`, {
+    fetch(`http://localhost:5005/payments/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

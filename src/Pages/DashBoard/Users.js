@@ -9,7 +9,7 @@ const Users = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("http://localhost:5005/ users", {
+    fetch("http://localhost:5005/users", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -23,8 +23,8 @@ const Users = () => {
 
   return (
     <div>
-      <div class="overflow-x-auto">
-        <table class="table w-full">
+      <div class="overflow-x-auto ">
+        <table class="table-auto w-full">
           <thead>
             <tr>
               <th></th>

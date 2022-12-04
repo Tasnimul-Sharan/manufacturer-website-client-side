@@ -11,7 +11,7 @@ const DeleteAllOrders = ({
   console.log(deleteOrders);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5005/ allOrders/${id}`, {
+    fetch(`http://localhost:5005/allOrders/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

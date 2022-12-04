@@ -9,7 +9,7 @@ const ManageProduct = () => {
 
   const [manufactures, setManufactures] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5005/ parts", {
+    fetch("http://localhost:5005/parts", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
