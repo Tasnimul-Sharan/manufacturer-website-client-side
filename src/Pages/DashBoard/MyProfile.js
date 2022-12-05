@@ -14,13 +14,16 @@ const MyProfile = () => {
   const onSubmit = (data) => {
     console.log(data);
     const email = user?.email;
-    fetch(`http://localhost:5005/profile/${email}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      `https://manufacturer-website-server-side.vercel.app/profile/${email}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

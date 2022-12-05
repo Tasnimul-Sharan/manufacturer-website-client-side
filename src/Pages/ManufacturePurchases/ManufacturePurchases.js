@@ -9,9 +9,6 @@ import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { isDisabled } from "@testing-library/user-event/dist/utils";
-// import Order from "./Order";
-// import OrderingUser from "./OrderingUser";
 
 const ManufacturePurchases = () => {
   const { maufactureId } = useParams();
@@ -25,9 +22,9 @@ const ManufacturePurchases = () => {
     isLoading,
     refetch,
   } = useQuery(["parts", maufactureId], () =>
-    fetch(`http://localhost:5005/parts/${maufactureId}`).then((res) =>
-      res.json()
-    )
+    fetch(
+      `https://manufacturer-website-server-side.vercel.app/parts/${maufactureId}`
+    ).then((res) => res.json())
   );
   useEffect(() => {
     if (manufacture?.minimumQuantity) {
@@ -38,22 +35,24 @@ const ManufacturePurchases = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    axios.post("http://localhost:5005/orders", data).then((res) => {
-      const { data } = res;
-      console.log(data);
-      if (
-        quantity >= manufacture?.minimumQuantity &&
-        quantity <= manufacture.availableQuantity
-      ) {
-        toast.success("You order have placed");
-      } else {
-        toast.error(
-          "You have to purchase at least minimum quantity or available quantity"
-        );
-      }
+    axios
+      .post("https://manufacturer-website-server-side.vercel.app/orders", data)
+      .then((res) => {
+        const { data } = res;
+        console.log(data);
+        if (
+          quantity >= manufacture?.minimumQuantity &&
+          quantity <= manufacture.availableQuantity
+        ) {
+          toast.success("You order have placed");
+        } else {
+          toast.error(
+            "You have to purchase at least minimum quantity or available quantity"
+          );
+        }
 
-      refetch();
-    });
+        refetch();
+      });
   };
 
   if (isLoading || loading) {

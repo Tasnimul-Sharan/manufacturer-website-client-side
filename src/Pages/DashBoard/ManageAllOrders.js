@@ -10,7 +10,7 @@ const ManageAllOrders = () => {
   const [shipped, setShipped] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5005/allOrders", {
+    fetch("https://manufacturer-website-server-side.vercel.app/allOrders", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

@@ -11,7 +11,7 @@ const DeleteManageParts = ({
   console.log(deleteParts);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5005/parts/${id}`, {
+    fetch(`https://manufacturer-website-server-side.vercel.app/parts/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

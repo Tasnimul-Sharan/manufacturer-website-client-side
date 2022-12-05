@@ -32,7 +32,7 @@ const AddProduct = () => {
             description: data.description,
             picture: picture,
           };
-          fetch("http://localhost:5005/parts", {
+          fetch("https://manufacturer-website-server-side.vercel.app/parts", {
             method: "POST",
             headers: {
               "content-type": "application/json",

@@ -19,7 +19,7 @@ const MyOrders = () => {
     const getOrders = async () => {
       if (user) {
         const { data } = await axios.get(
-          `http://localhost:5005/orders?email=${user?.email}`,
+          `https://manufacturer-website-server-side.vercel.app/orders?email=${user?.email}`,
           {
             headers: {
               authorization: `Bearer ${localStorage.getItem("accessToken")}`,

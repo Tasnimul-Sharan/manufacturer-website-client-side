@@ -11,12 +11,15 @@ const DeleteAllOrders = ({
   console.log(deleteOrders);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5005/allOrders/${id}`, {
-      method: "DELETE",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://manufacturer-website-server-side.vercel.app/allOrders/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

@@ -4,7 +4,7 @@ import Manufacturer from "./Manufacturer";
 const Manufactures = () => {
   const [manufactures, setManufactures] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5005/parts")
+    fetch("https://manufacturer-website-server-side.vercel.app/parts")
       .then((res) => res.json())
       .then((data) => setManufactures(data));
   }, []);
