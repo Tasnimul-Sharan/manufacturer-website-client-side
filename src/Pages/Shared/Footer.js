@@ -1,58 +1,66 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import logo from "../../images/hardware-icon-png-22 (1).png";
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-800 text-white py-10 mt-10">
-      <div class="footer p-10">
-        <div>
-          <span class="footer-title">Services</span>
-          <Link to="/go" class="link link-hover">
-            Branding
-          </Link>
-          <Link to="/go" class="link link-hover">
-            Design
-          </Link>
-          <Link to="/go" class="link link-hover">
-            Marketing
-          </Link>
-          <Link to="/go" class="link link-hover">
-            Advertisement
-          </Link>
+    <footer className="bg-slate-800 text-white py-8">
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
+        <div className="flex-1">
+          <div className="flex items-center">
+            <img src={logo} alt="Logo" className="w-40 mr-2" />
+          </div>
         </div>
-        <div>
-          <span class="footer-title">Company</span>
-          <Link to="/go" class="link link-hover">
-            About us
-          </Link>
-          <Link to="/go" class="link link-hover">
-            Contact
-          </Link>
-          <Link to="/go" class="link link-hover">
-            Jobs
-          </Link>
-          <Link to="/go" class="link link-hover">
-            Press kit
-          </Link>
+        <div className="flex-1 mt-4 md:mt-0">
+          <h3 className="text-lg font-semibold">Services</h3>
+          <ul className="list-none">
+            <li>
+              <a href="#"></a>
+            </li>
+            <li>
+              <a href="#">Branding</a>
+            </li>
+            <li>
+              <a href="#">Design</a>
+            </li>
+            <li>
+              <a href="#">Marketing</a>
+            </li>
+          </ul>
         </div>
-        <div>
-          <span class="footer-title">Legal</span>
-          <Link to="/go" class="link link-hover">
-            Terms of use
-          </Link>
-          <Link to="/go" class="link link-hover">
-            Privacy policy
-          </Link>
-          <Link to="/go" class="link link-hover">
-            Cookie policy
-          </Link>
+        <div className="flex-1 mt-4 md:mt-0">
+          <h3 className="text-lg font-semibold">Company</h3>
+          <ul className="list-none">
+            <li>
+              <a href="#">About us</a>
+            </li>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+            <li>
+              <a href="#">Jobs</a>
+            </li>
+          </ul>
+        </div>
+        <div className="flex-1 mt-4 md:mt-0">
+          <h3 className="text-lg font-semibold">Legal</h3>
+          <ul className="list-none">
+            <li>
+              <a href="#">Terms of use</a>
+            </li>
+            <li>
+              <a href="#">Privacy policy</a>
+            </li>
+            <li>
+              <a href="#">Cookie policy </a>
+            </li>
+          </ul>
         </div>
       </div>
-      <div className="">
-        <p>
-          Copyright © {new Date().getFullYear()} - All right reserved <br />{" "}
-          Space Electronics{" "}
+      <div className="text-center mt-6">
+        <p className="text-lg">
+          Copyright © {new Date().getFullYear()} All rights reserved.
         </p>
+        <p className="text-lg">Space Electronics</p>
       </div>
     </footer>
   );
